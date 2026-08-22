@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtor — Raiz Agro Hub</title>
+    <meta name="description" content="Conte qual é o seu desafio na fazenda e a gente te conecta com quem pode resolver.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mvp.css">
+</head>
+<body class="mvp-page">
+    <div class="mvp-shell">
+        <div class="mvp-topbar">
+            <span class="mvp-logo">Raiz<span class="dot"></span></span>
+            <a href="index.html" class="mvp-back-link"><i class="fa-solid fa-arrow-left"></i> Voltar para o site</a>
+        </div>
+
+        <div class="mvp-card">
+            <span class="mvp-eyebrow"><i class="fa-solid fa-wheat-awn"></i> Sou Produtor Rural</span>
+            <h1 class="mvp-title">Conte seu problema e a gente te ajuda a resolver</h1>
+            <p class="mvp-subtitle">É rápido, é de graça, e você vai ser um dos primeiros a usar o Raiz.</p>
+
+            <form id="formProdutor" novalidate>
+                <div class="mvp-form-group">
+                    <label for="nome">Nome completo <span class="mvp-required">*</span></label>
+                    <input type="text" id="nome" name="nome" class="mvp-control" placeholder="Seu nome" required>
+                </div>
+
+                <div class="mvp-form-row">
+                    <div class="mvp-form-group">
+                        <label for="email">E-mail <span class="mvp-required">*</span></label>
+                        <input type="email" id="email" name="email" class="mvp-control" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="mvp-form-group">
+                        <label for="telefone">Telefone / WhatsApp <span class="mvp-required">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" class="mvp-control" placeholder="(67) 99999-9999" required>
+                    </div>
+                </div>
+
+                <div class="mvp-form-row">
+                    <div class="mvp-form-group">
+                        <label for="municipio">Município <span class="mvp-required">*</span></label>
+                        <input type="text" id="municipio" name="municipio" class="mvp-control" placeholder="Ex: Campo Grande" required>
+                    </div>
+                    <div class="mvp-form-group">
+                        <label for="uf">Estado (UF) <span class="mvp-required">*</span></label>
+                        <select id="uf" name="uf" class="mvp-control" required>
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mvp-form-group">
+                    <label for="atividade">Atividade principal <span class="mvp-required">*</span></label>
+                    <select id="atividade" name="atividade" class="mvp-control" required>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+
+                <div class="mvp-form-group">
+                    <label for="categoriaDesafio">Categoria do desafio <span class="mvp-required">*</span></label>
+                    <select id="categoriaDesafio" name="categoriaDesafio" class="mvp-control" required>
+                        <option value="">Selecione</option>
+                    </select>
+                    <span class="mvp-hint">Escolha o assunto que mais tem a ver com o que está te atrapalhando.</span>
+                </div>
+
+                <div class="mvp-form-group">
+                    <label for="descDesafio">Descrição do desafio</label>
+                    <textarea id="descDesafio" name="descDesafio" class="mvp-control" placeholder="Conte com suas palavras o que está te atrapalhando na fazenda..."></textarea>
+                </div>
+
+                <div class="mvp-form-group">
+                    <label>Quão urgente é isso pra você? <span class="mvp-required">*</span></label>
+                    <div class="mvp-radio-group" id="urgenciaGroup">
+                        <div class="mvp-radio-option">
+                            <input type="radio" name="urgencia" id="urgencia-baixa" value="baixa" required>
+                            <label for="urgencia-baixa">Pode esperar</label>
+                        </div>
+                        <div class="mvp-radio-option">
+                            <input type="radio" name="urgencia" id="urgencia-media" value="media" required>
+                            <label for="urgencia-media">Média</label>
+                        </div>
+                        <div class="mvp-radio-option">
+                            <input type="radio" name="urgencia" id="urgencia-alta" value="alta" required>
+                            <label for="urgencia-alta">Preciso resolver logo</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mvp-form-group">
+                    <label for="porte">Porte da propriedade <span class="mvp-required">*</span></label>
+                    <select id="porte" name="porte" class="mvp-control" required>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg mvp-submit">
+                    Enviar meu Cadastro <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="mvp-data.js"></script>
+    <script src="mvp-mask.js"></script>
+    <script>
+        (function () {
+            function preencherSelect(select, opcoes, formatarLabel) {
+                opcoes.forEach(function (valor) {
+                    var option = document.createElement('option');
+                    option.value = valor;
+                    option.textContent = formatarLabel ? formatarLabel(valor) : valor;
+                    select.appendChild(option);
+                });
+            }
+
+            mvpAplicarMascaraTelefone(document.getElementById('telefone'));
+
+            preencherSelect(document.getElementById('uf'), MVP_ESTADOS, function (uf) {
+                return uf === 'OUTRO' ? 'Outro Estado' : uf;
+            });
+            preencherSelect(document.getElementById('atividade'), MVP_ATIVIDADES);
+            preencherSelect(document.getElementById('categoriaDesafio'), MVP_CATEGORIAS);
+            preencherSelect(document.getElementById('porte'), MVP_PORTES);
+
+            var form = document.getElementById('formProdutor');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                var urgenciaEl = form.querySelector('input[name="urgencia"]:checked');
+
+                var dados = {
+                    nome: document.getElementById('nome').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    telefone: document.getElementById('telefone').value.trim(),
+                    municipio: document.getElementById('municipio').value.trim(),
+                    uf: document.getElementById('uf').value,
+                    atividade: document.getElementById('atividade').value,
+                    categoriaDesafio: document.getElementById('categoriaDesafio').value,
+                    descDesafio: document.getElementById('descDesafio').value.trim(),
+                    urgencia: urgenciaEl ? urgenciaEl.value : '',
+                    porte: document.getElementById('porte').value
+                };
+
+                if (!form.checkValidity() || !dados.urgencia) {
+                    form.reportValidity();
+                    return;
+                }
+
+                var produtor = mvpSalvarProdutor(dados);
+                window.location.href = 'matches.html?tipo=produtor&id=' + produtor.id;
+            });
+        })();
+    </script>
+</body>
+</html>
