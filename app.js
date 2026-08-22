@@ -54,10 +54,10 @@ const scenarios = {
             name: 'João Paulo',
             type: 'Produtor Rural',
             cultura: 'Cana-de-açúcar e Soja',
-            desafio: 'Ervas daninhas e eficiência no manejo',
+            desafio: 'Mato tomando conta da lavoura',
             regiao: 'Centro-Sul (Mato Grosso do Sul)',
             area: '850 ha',
-            tags: ['cana-de-açúcar', 'manejo', 'eficiência', 'controle']
+            tags: ['cana-de-açúcar', 'manejo', 'economia', 'controle']
         },
         match: {
             score: '94%',
@@ -65,9 +65,9 @@ const scenarios = {
         },
         agtech: {
             name: 'Geo IA',
-            category: 'AgTech Validada',
-            especialidade: 'Inteligência de solo e monitoramento',
-            solucao: 'Mapeamento de áreas críticas, controle de ervas daninhas e recomendação de manejo',
+            category: 'Empresa Já Conferida',
+            especialidade: 'Olha o solo e avisa onde tem problema',
+            solucao: 'Mostra onde está o mato na lavoura e diz o jeito certo de tirar',
             tags: ['precisão', 'economia', 'dados', 'monitoramento']
         }
     },
@@ -76,10 +76,10 @@ const scenarios = {
             name: 'Mariana Silveira',
             type: 'Produtora & Gestora Rural',
             cultura: 'Milho Safrinha e Soja',
-            desafio: 'Redução de custos com fertilizantes NPK e calagem',
+            desafio: 'Gastando muito dinheiro com adubo',
             regiao: 'Norte / Centro-Oeste (MS/MT)',
             area: '2.400 ha',
-            tags: ['milho', 'adubação', 'redução de custos', 'taxa variável']
+            tags: ['milho', 'adubação', 'economia', 'menos desperdício']
         },
         match: {
             score: '96%',
@@ -87,10 +87,10 @@ const scenarios = {
         },
         agtech: {
             name: 'AgriSmart',
-            category: 'AgTech Validada',
-            especialidade: 'Nutrição de Precisão & IoT de Solo',
-            solucao: 'Mapas de aplicação em taxa variável e sensores em tempo real de absorção NPK',
-            tags: ['taxa variável', 'NPK', 'economia 22%', 'sensores']
+            category: 'Empresa Já Conferida',
+            especialidade: 'Testa a terra e diz a quantidade certa de adubo',
+            solucao: 'Coloca adubo só onde precisa, economizando até 22% no gasto',
+            tags: ['economia 22%', 'menos desperdício', 'sensores no solo']
         }
     },
     clima: {
@@ -98,10 +98,10 @@ const scenarios = {
             name: 'Carlos Eduardo Mendes',
             type: 'Diretor de Cooperativa',
             cultura: 'Pecuária de Corte e Grãos',
-            desafio: 'Previsão microclimática para janela ideal de plantio e pastagem',
+            desafio: 'Não sabe a hora certa de plantar ou tirar o gado do pasto',
             regiao: 'Centro-Oeste (MS/GO)',
             area: '5.200 ha',
-            tags: ['pecuária', 'clima', 'janela de plantio', 'pastagem']
+            tags: ['pecuária', 'clima', 'hora certa de plantar', 'pastagem']
         },
         match: {
             score: '92%',
@@ -109,10 +109,10 @@ const scenarios = {
         },
         agtech: {
             name: 'TerraView Climate',
-            category: 'AgTech Validada',
-            especialidade: 'Inteligência Climática e Sensoriamento Remoto',
-            solucao: 'Modelagem preditiva hiperlocal com radar meteorológico e índice de umidade',
-            tags: ['radar', 'previsão 15 dias', 'alerta geada', 'satélite']
+            category: 'Empresa Já Conferida',
+            especialidade: 'Avisa com antecedência sobre chuva, seca e geada',
+            solucao: 'Manda alerta no celular 15 dias antes de mudança forte no tempo',
+            tags: ['previsão 15 dias', 'alerta de geada', 'direto no celular']
         }
     }
 };
