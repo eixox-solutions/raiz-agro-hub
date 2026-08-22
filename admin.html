@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin | Raiz Agro Hub</title>
+    <meta name="description" content="Painel administrativo do MVP Raiz Agro Hub: produtores, empresas e conexões solicitadas.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mvp.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-symbol">
+                    <span class="logo-name">Raiz</span>
+                    <span class="logo-dot"></span>
+                </div>
+                <div class="logo-subline">
+                    <span class="dash">—</span> Agro Hub <span class="dash">—</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <span class="nav-link" style="opacity:.7;">Painel Admin</span>
+            </nav>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline">Voltar ao site</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="mvp-page container" style="padding-top: 120px; padding-bottom: 80px;">
+
+        <div class="mvp-page-header">
+            <h1>Raiz Agro Hub — Painel</h1>
+            <p class="text-muted">Visão geral dos cadastros e conexões solicitadas nesta demo (dados salvos apenas neste navegador).</p>
+        </div>
+
+        <!-- Ações -->
+        <div class="mvp-admin-actions">
+            <button type="button" class="btn btn-primary" id="btnSeed">
+                <i class="fa-solid fa-seedling"></i> Carregar Dados de Exemplo
+            </button>
+            <button type="button" class="btn btn-outline mvp-btn-danger" id="btnClear">
+                <i class="fa-solid fa-trash"></i> Limpar Todos os Dados
+            </button>
+        </div>
+        <p id="seedFeedback" class="mvp-feedback" role="status" aria-live="polite"></p>
+
+        <!-- Contadores -->
+        <div class="mvp-counters">
+            <div class="mvp-counter-card">
+                <span class="mvp-counter-value" id="countProdutores">0</span>
+                <span class="mvp-counter-label">Produtores cadastrados</span>
+            </div>
+            <div class="mvp-counter-card">
+                <span class="mvp-counter-value" id="countEmpresas">0</span>
+                <span class="mvp-counter-label">Empresas cadastradas</span>
+            </div>
+            <div class="mvp-counter-card">
+                <span class="mvp-counter-value" id="countConexoes">0</span>
+                <span class="mvp-counter-label">Conexões solicitadas</span>
+            </div>
+        </div>
+
+        <!-- Produtores -->
+        <section class="mvp-table-section">
+            <div class="mvp-table-header">
+                <h2>Produtores</h2>
+                <button type="button" class="btn btn-outline btn-sm" id="btnExportProdutores">
+                    <i class="fa-solid fa-file-csv"></i> Exportar CSV
+                </button>
+            </div>
+            <div class="mvp-table-wrap">
+                <table class="mvp-table" id="tableProdutores">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Município/UF</th>
+                            <th>Categoria do Desafio</th>
+                            <th>Urgência</th>
+                            <th>Data de Cadastro</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyProdutores"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Empresas -->
+        <section class="mvp-table-section">
+            <div class="mvp-table-header">
+                <h2>Empresas</h2>
+                <button type="button" class="btn btn-outline btn-sm" id="btnExportEmpresas">
+                    <i class="fa-solid fa-file-csv"></i> Exportar CSV
+                </button>
+            </div>
+            <div class="mvp-table-wrap">
+                <table class="mvp-table" id="tableEmpresas">
+                    <thead>
+                        <tr>
+                            <th>Nome da Empresa</th>
+                            <th>UF</th>
+                            <th>Categoria da Solução</th>
+                            <th>Estágio</th>
+                            <th>Data de Cadastro</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyEmpresas"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Conexões solicitadas -->
+        <section class="mvp-table-section">
+            <div class="mvp-table-header">
+                <h2>Conexões Solicitadas</h2>
+                <button type="button" class="btn btn-outline btn-sm" id="btnExportConexoes">
+                    <i class="fa-solid fa-file-csv"></i> Exportar CSV
+                </button>
+            </div>
+            <div class="mvp-table-wrap">
+                <table class="mvp-table" id="tableConexoes">
+                    <thead>
+                        <tr>
+                            <th>Produtor</th>
+                            <th>Empresa</th>
+                            <th>Combina</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyConexoes"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Data layer -->
+    <script src="mvp-data.js"></script>
+    <script src="mvp-admin.js"></script>
+</body>
+</html>
