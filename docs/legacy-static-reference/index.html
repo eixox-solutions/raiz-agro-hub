@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raiz Agro Hub | Conectando agronegócio, inovação e oportunidades</title>
+    <meta name="description" content="Plataforma inteligente de conexão entre produtores rurais, AgTechs, empresas e instituições do agro. Matchmaking inteligente com IA e curadoria.">
+    <meta name="keywords" content="Raiz Agro Hub, AgTech, matchmaking agro, inovação agrícola, Mato Grosso do Sul, Acrissul, Rota Bioceânica, inteligência no agro">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Raiz Agro Hub | Conectando agronegócio, inovação e oportunidades">
+    <meta property="og:description" content="Plataforma inteligente de conexão entre produtores, AgTechs, empresas e instituições do agro.">
+    <meta property="og:image" content="assets/images/hero.jpg">
+    <meta property="og:url" content="https://www.raizagrohub.com.br">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-symbol">
+                    <span class="logo-name">Raiz</span>
+                    <span class="logo-dot"></span>
+                </div>
+                <div class="logo-subline">
+                    <span class="dash">—</span> Agro Hub <span class="dash">—</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#proposito" class="nav-link">O Problema</a>
+                <a href="#como-funciona" class="nav-link">Como Funciona</a>
+                <a href="#matchmaking" class="nav-link">Matchmaking IA</a>
+                <a href="#mercado" class="nav-link">Mercado</a>
+                <a href="#modelo" class="nav-link">Diferenciais</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#cadastro" class="btn btn-outline" id="btnNavEmpresa">Sou Empresa</a>
+                <a href="#cadastro" class="btn btn-primary" id="btnNavParticipar">Quero fazer parte</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="brand-hero-badge">
+                        <div class="hero-logo-lockup">
+                            <span class="hero-raiz">Raiz</span>
+                            <span class="hero-leaf-dot"></span>
+                        </div>
+                        <span class="hero-subbar">— Agro Hub —</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        O jeito fácil de achar <span class="text-highlight">quem resolve o seu problema</span> no campo
+                    </h1>
+
+                    <p class="hero-lead">
+                        Você conta o problema da sua fazenda. A gente te mostra, de graça, quem já tem a solução: empresas de tecnologia do agro, prontas para te ajudar.
+                    </p>
+
+                    <div class="hero-ctas">
+                        <a href="#matchmaking" class="btn btn-primary btn-lg">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>Ver Como Funciona</span>
+                        </a>
+                        <a href="#cadastro" class="btn btn-secondary btn-lg">
+                            <span>Contar meu Problema Agora</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-pill-badges">
+                        <div class="pill-item">
+                            <i class="fa-solid fa-leaf"></i>
+                            <span>Conexão que gera valor</span>
+                        </div>
+                        <div class="pill-item">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Inovação que transforma</span>
+                        </div>
+                        <div class="pill-item">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span>Parcerias que fortalecem o agro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-media-wrapper">
+                    <div class="hero-image-card">
+                        <img src="assets/images/hero.jpg" alt="Produtor rural utilizando Raiz Agro Hub no campo" class="hero-bg-img">
+                        <div class="hero-overlay-gradient"></div>
+
+                        <!-- Floating Micro-Cards (as in Pitch Deck Page 1) -->
+                        <div class="floating-stat-card card-top-left">
+                            <div class="f-icon"><i class="fa-solid fa-droplet"></i></div>
+                            <div class="f-data">
+                                <span class="f-val">32%</span>
+                                <span class="f-lbl">Matéria orgânica / Umidade</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-stat-card card-top-right">
+                            <div class="f-icon icon-emerald"><i class="fa-solid fa-chart-area"></i></div>
+                            <div class="f-data">
+                                <span class="f-val">0,72</span>
+                                <span class="f-lbl">NDVI Normal</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-stat-card card-bottom-left">
+                            <div class="f-icon icon-growth"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                            <div class="f-data">
+                                <span class="f-val">+18%</span>
+                                <span class="f-lbl">Produtividade vs. safra anterior</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-stat-card card-bottom-right">
+                            <div class="f-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+                            <div class="f-data">
+                                <span class="f-val">24°C</span>
+                                <span class="f-lbl">Clima e Telemetria</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillars Navigation Bar -->
+        <section class="pillars-strip">
+            <div class="container pillars-container">
+                <div class="pillar-box">
+                    <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <div class="pillar-text">
+                        <strong>Apresentação do negócio</strong>
+                        <span>Hub integrado de inteligência</span>
+                    </div>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-icon"><i class="fa-solid fa-people-arrows"></i></div>
+                    <div class="pillar-text">
+                        <strong>Conexão que gera valor</strong>
+                        <span>Matches qualificados</span>
+                    </div>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="pillar-text">
+                        <strong>Inovação que transforma</strong>
+                        <span>Tecnologia validada no campo</span>
+                    </div>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="pillar-text">
+                        <strong>Oportunidades que impulsionam</strong>
+                        <span>Negócios e recorrência</span>
+                    </div>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <div class="pillar-text">
+                        <strong>Parcerias que fortalecem</strong>
+                        <span>Apoio institucional e Acrissul</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: O Problema e a Oportunidade (Slide 2) -->
+        <section class="section-problem" id="proposito">
+            <div class="container">
+                <div class="section-title-wrap text-center">
+                    <span class="sub-header-tag">DIAGNÓSTICO SETORIAL</span>
+                    <h2 class="main-heading">O problema e a oportunidade</h2>
+                    <p class="heading-sub">Entendemos a fundo as dores de quem produz e de quem desenvolve inovação para o campo.</p>
+                </div>
+
+                <div class="problem-grid">
+                    <!-- Do lado do produtor -->
+                    <div class="problem-card">
+                        <div class="card-header-icon producer-icon">
+                            <i class="fa-solid fa-wheat-awn"></i>
+                            <h3>Do lado do produtor</h3>
+                        </div>
+                        <ul class="problem-list">
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+                                <span><strong>Muita opção espalhada:</strong> Difícil saber o que realmente funciona.</span>
+                            </li>
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-clock"></i></div>
+                                <span><strong>Pouco tempo:</strong> O dia a dia no campo não sobra tempo pra pesquisar e comparar tecnologia.</span>
+                            </li>
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                                <span><strong>O que importa de verdade:</strong> Gastar menos e colher mais na safra.</span>
+                            </li>
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-shield-check"></i></div>
+                                <span><strong>Segurança na hora de escolher:</strong> Só decidir depois de ver que a solução realmente funciona.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Do lado das empresas -->
+                    <div class="problem-card">
+                        <div class="card-header-icon company-icon">
+                            <i class="fa-solid fa-building-wheat"></i>
+                            <h3>Do lado das empresas e AgTechs</h3>
+                        </div>
+                        <ul class="problem-list">
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                                <span><strong>Dificuldade de acesso:</strong> Encontrar produtores rurais com demanda e fit real.</span>
+                            </li>
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-bullseye"></i></div>
+                                <span><strong>Esforço comercial alto:</strong> Ciclos de vendas longos e pouco qualificados.</span>
+                            </li>
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-flask-vial"></i></div>
+                                <span><strong>Necessidade de validação:</strong> Provar eficácia e gerar cases práticos no campo.</span>
+                            </li>
+                            <li>
+                                <div class="p-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                                <span><strong>Busca por novos negócios:</strong> Crescimento sustentável e escala recorrente.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Oportunidade Central -->
+                <div class="opportunity-banner">
+                    <div class="opp-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="opp-text">
+                        <strong>Oportunidade:</strong> transformar demandas reais do agro em <span>conexões qualificadas e negócios</span>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Como o Raiz Funciona (Slide 4) -->
+        <section class="section-how" id="como-funciona">
+            <div class="container">
+                <div class="section-title-wrap text-center">
+                    <span class="sub-header-tag">É SIMPLES ASSIM</span>
+                    <h2 class="main-heading">Como o Raiz funciona</h2>
+                    <p class="heading-sub text-green-bold">Do seu problema até a solução certa, passo a passo</p>
+                </div>
+
+                <div class="workflow-steps">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-num">01</div>
+                        <div class="step-icon"><i class="fa-solid fa-user-gear"></i></div>
+                        <h4>Você conta seu problema</h4>
+                        <p>Fala sobre sua propriedade e qual dificuldade está enfrentando no campo hoje.</p>
+                    </div>
+
+                    <div class="step-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="step-num">02</div>
+                        <div class="step-icon"><i class="fa-solid fa-city"></i></div>
+                        <h4>As empresas se cadastram</h4>
+                        <p>Empresas de tecnologia do agro mostram pra gente o que elas sabem resolver.</p>
+                    </div>
+
+                    <div class="step-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 3 (Center Matchmaking) -->
+                    <div class="step-card step-central">
+                        <div class="central-glow"></div>
+                        <div class="step-num highlight-num"><i class="fa-solid fa-brain"></i></div>
+                        <div class="step-icon central-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+                        <h4>O Raiz encontra a solução</h4>
+                        <p>Nosso sistema compara seu problema com todas as soluções e acha as melhores pra você.</p>
+                    </div>
+
+                    <div class="step-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card">
+                        <div class="step-num">04</div>
+                        <div class="step-icon"><i class="fa-solid fa-file-shield"></i></div>
+                        <h4>Uma pessoa confere tudo</h4>
+                        <p>Antes de te indicar algo, nossa equipe olha se a solução realmente serve pra sua fazenda.</p>
+                    </div>
+
+                    <div class="step-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+                    <!-- Step 5 -->
+                    <div class="step-card">
+                        <div class="step-num">05</div>
+                        <div class="step-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+                        <h4>Vocês se conectam</h4>
+                        <p>Você conversa direto com a empresa: pode pedir uma demonstração, testar ou já contratar.</p>
+                    </div>
+                </div>
+
+                <div class="how-footnote text-center">
+                    <i class="fa-solid fa-seedling"></i>
+                    <span>O Raiz olha o seu problema e o que cada empresa oferece, e te mostra só o que realmente combina com você.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Matchmaking Simulator Interativo (Slide 7 Inspired) -->
+        <section class="section-matchmaking" id="matchmaking">
+            <div class="container">
+                <div class="section-title-wrap text-center">
+                    <span class="sub-header-tag">VEJA UM EXEMPLO</span>
+                    <h2 class="main-heading">Veja Como a Gente Encontra a Solução Certa</h2>
+                    <p class="heading-sub">Um exemplo real de problema do campo sendo resolvido.</p>
+
+                    <div class="match-feature-tags">
+                        <span class="mf-tag"><i class="fa-solid fa-microchip"></i> Sistema próprio do Raiz</span>
+                        <span class="mf-tag"><i class="fa-solid fa-user-check"></i> Uma pessoa confere tudo</span>
+                        <span class="mf-tag"><i class="fa-solid fa-certificate"></i> Solução testada</span>
+                        <span class="mf-tag"><i class="fa-solid fa-chart-line"></i> Chance real de negócio</span>
+                    </div>
+                </div>
+
+                <!-- Interactive App Window Mockup -->
+                <div class="browser-mockup">
+                    <div class="browser-header">
+                        <div class="browser-dots">
+                            <span class="b-dot red"></span>
+                            <span class="b-dot yellow"></span>
+                            <span class="b-dot green"></span>
+                        </div>
+                        <div class="browser-address">
+                            <i class="fa-solid fa-lock"></i> raizagrohub.com.br/matchmaking
+                        </div>
+                        <div class="browser-actions">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </div>
+                    </div>
+
+                    <div class="browser-body">
+                        <!-- Control Bar to Test Different Matches -->
+                        <div class="simulator-controls">
+                            <span class="sim-label"><i class="fa-solid fa-sliders"></i> Escolha um problema pra ver o exemplo:</span>
+                            <div class="sim-buttons">
+                                <button class="sim-btn active" data-scenario="ervas">Cana / Soja - Mato no Meio da Lavoura</button>
+                                <button class="sim-btn" data-scenario="adubo">Milho - Gastando Muito com Adubo</button>
+                                <button class="sim-btn" data-scenario="clima">Pecuária / Grãos - Saber Quando Vai Chover</button>
+                            </div>
+                        </div>
+
+                        <!-- Match Result Container -->
+                        <div class="match-interactive-grid">
+                            <!-- Left: Producer Profile -->
+                            <div class="match-side-card producer-side" id="producerProfile">
+                                <span class="badge-role"><i class="fa-solid fa-user"></i> PRODUTOR RURAL</span>
+                                <div class="profile-header">
+                                    <div class="profile-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                                    <div>
+                                        <h4 id="prodName">João Paulo</h4>
+                                        <span class="profile-sub" id="prodType">Produtor Rural</span>
+                                    </div>
+                                </div>
+                                <div class="profile-details">
+                                    <p><strong>Planta:</strong> <span id="prodCultura">Cana-de-açúcar e Soja</span></p>
+                                    <p><strong>Problema:</strong> <span id="prodDesafio">Mato tomando conta da lavoura</span></p>
+                                    <p><strong>Onde fica:</strong> <span id="prodRegiao">Centro-Sul (Mato Grosso do Sul)</span></p>
+                                    <p><strong>Tamanho da terra:</strong> <span id="prodArea">850 ha</span></p>
+                                </div>
+                                <div class="profile-tags" id="prodTags">
+                                    <span class="tag">cana-de-açúcar</span>
+                                    <span class="tag">manejo</span>
+                                    <span class="tag">eficiência</span>
+                                    <span class="tag">controle</span>
+                                </div>
+                            </div>
+
+                            <!-- Center: Match AI Adherence Core -->
+                            <div class="match-center-dial">
+                                <div class="dial-circle">
+                                    <div class="dial-percentage" id="matchScore">94%</div>
+                                    <div class="dial-label">essa solução combina com você</div>
+                                    <div class="dial-stars" id="matchStars">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <a href="#cadastro" class="btn btn-primary btn-match-cta">
+                                    <span>Falar com essa Empresa</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <span class="match-guarantee"><i class="fa-solid fa-shield-halved"></i> Seus dados ficam seguros com a gente</span>
+                            </div>
+
+                            <!-- Right: Matched Solution / AgTech -->
+                            <div class="match-side-card agtech-side" id="agtechProfile">
+                                <span class="badge-role role-agtech"><i class="fa-solid fa-microchip"></i> QUEM PODE TE AJUDAR</span>
+                                <div class="profile-header">
+                                    <div class="profile-avatar avatar-agtech"><i class="fa-solid fa-robot"></i></div>
+                                    <div>
+                                        <h4 id="agtechName">Geo IA</h4>
+                                        <span class="profile-sub" id="agtechCategory">Empresa Já Conferida</span>
+                                    </div>
+                                </div>
+                                <div class="profile-details">
+                                    <p><strong>Faz o quê:</strong> <span id="agtechEspecialidade">Olha o solo e avisa onde tem problema</span></p>
+                                    <p><strong>Como ajuda:</strong> <span id="agtechSolucao">Mostra onde está o mato na lavoura e diz o jeito certo de tirar</span></p>
+                                </div>
+                                <div class="profile-tags" id="agtechTags">
+                                    <span class="tag">precisão</span>
+                                    <span class="tag">economia</span>
+                                    <span class="tag">dados</span>
+                                    <span class="tag">monitoramento</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Compatible Solutions -->
+                        <div class="compatible-row">
+                            <div class="comp-title">Outras empresas que também podem te ajudar:</div>
+                            <div class="comp-cards-grid">
+                                <div class="comp-card">
+                                    <div class="comp-h">
+                                        <div class="comp-icon"><i class="fa-solid fa-satellite"></i></div>
+                                        <div>
+                                            <strong>AgriSmart</strong>
+                                            <span class="comp-type">Empresa de Tecnologia</span>
+                                        </div>
+                                        <span class="comp-badge">86% combina</span>
+                                    </div>
+                                    <p>Olha sua lavoura de longe e avisa onde precisa de atenção</p>
+                                </div>
+
+                                <div class="comp-card">
+                                    <div class="comp-h">
+                                        <div class="comp-icon"><i class="fa-solid fa-layer-group"></i></div>
+                                        <div>
+                                            <strong>TerraView</strong>
+                                            <span class="comp-type">Empresa de Tecnologia</span>
+                                        </div>
+                                        <span class="comp-badge">83% combina</span>
+                                    </div>
+                                    <p>Testa a terra e diz qual adubo usar, sem desperdício</p>
+                                </div>
+
+                                <div class="comp-card">
+                                    <div class="comp-h">
+                                        <div class="comp-icon"><i class="fa-solid fa-drone"></i></div>
+                                        <div>
+                                            <strong>CropTech</strong>
+                                            <span class="comp-type">Empresa de Tecnologia</span>
+                                        </div>
+                                        <span class="comp-badge">81% combina</span>
+                                    </div>
+                                    <p>Aplica defensivo só onde precisa, direto pelo drone</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Mercado e Oportunidade (Slide 3) -->
+        <section class="section-market" id="mercado">
+            <div class="container">
+                <div class="market-split-grid">
+                    <div class="market-intro">
+                        <span class="sub-header-tag">DIMENSIONAMENTO</span>
+                        <h2 class="main-heading">Mercado e oportunidade</h2>
+                        <p class="market-lead">
+                            Validação inicial em <strong>Mato Grosso do Sul</strong>, com potencial de expansão nacional e conexão futura com a <strong>Rota Bioceânica</strong>.
+                        </p>
+
+                        <div class="expansion-cards">
+                            <div class="exp-item">
+                                <div class="exp-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                <div>
+                                    <strong>De MS para o Brasil</strong>
+                                    <span>Ponto de partida no coração do Centro-Oeste</span>
+                                </div>
+                            </div>
+
+                            <div class="exp-item">
+                                <div class="exp-icon"><i class="fa-solid fa-globe"></i></div>
+                                <div>
+                                    <strong>Conexão com a Rota Bioceânica</strong>
+                                    <span>Integração estratégica com corredores de exportação</span>
+                                </div>
+                            </div>
+
+                            <div class="exp-item">
+                                <div class="exp-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                                <div>
+                                    <strong>Escalabilidade e impacto real</strong>
+                                    <span>Digitalização de ponta a ponta na cadeia produtiva</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="market-stats-grid">
+                        <div class="m-stat-box">
+                            <div class="ms-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                            <div class="ms-data">
+                                <div class="ms-number">70 mil</div>
+                                <div class="ms-label">estabelecimentos rurais em MS</div>
+                            </div>
+                        </div>
+
+                        <div class="m-stat-box">
+                            <div class="ms-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="ms-data">
+                                <div class="ms-number">350 mil</div>
+                                <div class="ms-label">no Centro-Oeste</div>
+                            </div>
+                        </div>
+
+                        <div class="m-stat-box">
+                            <div class="ms-icon"><i class="fa-solid fa-map"></i></div>
+                            <div class="ms-data">
+                                <div class="ms-number">+5 milhões</div>
+                                <div class="ms-label">de estabelecimentos no Brasil</div>
+                            </div>
+                        </div>
+
+                        <div class="m-stat-box">
+                            <div class="ms-icon"><i class="fa-solid fa-seedling"></i></div>
+                            <div class="ms-data">
+                                <div class="ms-number">2.075</div>
+                                <div class="ms-label">AgTechs ativas no país</div>
+                            </div>
+                        </div>
+
+                        <div class="m-stat-box box-full">
+                            <div class="ms-icon highlight-green"><i class="fa-solid fa-users-gear"></i></div>
+                            <div class="ms-data">
+                                <div class="ms-number text-highlight">78%</div>
+                                <div class="ms-label">das AgTechs da América Latina e Caribe estão no Brasil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Modelo de Negócio & Validação (Slide 5 & 6) -->
+        <section class="section-business" id="modelo">
+            <div class="container">
+                <div class="section-title-wrap text-center">
+                    <span class="sub-header-tag">MONETIZAÇÃO & DIFERENCIAIS</span>
+                    <h2 class="main-heading">Modelo de negócio sustentável e escalável</h2>
+                    <p class="heading-sub">Monetização híbrida que gera valor para todos os participantes do ecossistema.</p>
+                </div>
+
+                <div class="business-models-grid">
+                    <div class="biz-card">
+                        <div class="biz-icon"><i class="fa-solid fa-cube"></i></div>
+                        <h3>Assinaturas de AgTechs e Empresas</h3>
+                        <p>Acesso a oportunidades qualificadas, catálogo de soluções, rodadas de conexão exclusivas, demonstrações guiadas e acompanhamento contínuo.</p>
+                    </div>
+
+                    <div class="biz-card">
+                        <div class="biz-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <h3>Para o Produtor, é de Graça</h3>
+                        <p>Cadastrar sua propriedade e contar seu problema não custa nada. Você só paga se quiser recursos extras, como comparar soluções em mais detalhes.</p>
+                    </div>
+
+                    <div class="biz-card">
+                        <div class="biz-icon"><i class="fa-solid fa-handshake"></i></div>
+                        <h3>Participação em Negócios Gerados</h3>
+                        <p>Taxa de sucesso sobre vendas, contratações, projetos-piloto e serviços agrícolas originados dentro do Raiz Agro Hub.</p>
+                    </div>
+                </div>
+
+                <div class="services-strip">
+                    <div class="s-badge"><i class="fa-solid fa-graduation-cap"></i> Capacitações</div>
+                    <div class="s-badge"><i class="fa-solid fa-award"></i> Solução Conferida por Especialista</div>
+                    <div class="s-badge"><i class="fa-solid fa-people-arrows"></i> Rodadas de Conexão</div>
+                    <div class="s-badge"><i class="fa-solid fa-calendar-check"></i> Eventos Setoriais</div>
+                    <div class="s-badge"><i class="fa-solid fa-chart-pie"></i> Inteligência de Dados</div>
+                </div>
+
+                <!-- Validações e Diferenciais (Slide 6) -->
+                <div class="validation-container">
+                    <div class="val-header text-center">
+                        <h3 class="val-title">Já conversamos com quem vive o campo</h3>
+                        <p class="val-sub">Ouvimos produtores e empresas de verdade antes de criar o Raiz.</p>
+                    </div>
+
+                    <div class="val-grid">
+                        <div class="val-card">
+                            <div class="val-number">20</div>
+                            <div class="val-label">produtores rurais que já conversamos</div>
+                            <p class="val-desc">Produtores mostraram interesse real em receber soluções para os problemas que eles mesmos apontaram.</p>
+                        </div>
+
+                        <div class="val-card">
+                            <div class="val-number">11</div>
+                            <div class="val-label">empresas de tecnologia que já conversamos</div>
+                            <p class="val-desc">Empresas contaram que é muito difícil hoje chegar até o produtor certo, na hora certa.</p>
+                        </div>
+
+                        <div class="val-card">
+                            <div class="val-icon-box"><i class="fa-solid fa-landmark"></i></div>
+                            <div class="val-label">Apoio de Quem Conhece o Agro</div>
+                            <p class="val-desc"><strong>Apoio da Acrissul</strong> (Associação dos Criadores de Mato Grosso do Sul) e outras entidades do setor.</p>
+                        </div>
+
+                        <div class="val-card">
+                            <div class="val-icon-box"><i class="fa-solid fa-microchip"></i></div>
+                            <div class="val-label">Sistema + Pessoas de Verdade</div>
+                            <p class="val-desc">A gente acompanha o resultado da conexão até o final, direto no campo.</p>
+                        </div>
+                    </div>
+
+                    <div class="val-diferencial-box text-center">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span><strong>O que o Raiz faz de diferente:</strong> em vez de você procurar sozinho entre centenas de empresas, a gente já te mostra <strong>só as que realmente resolvem seu problema</strong>.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Section 8: Formulário de Cadastro / Lead Capture (Slide 1, 7 & 9) -->
+        <section class="section-lead-form" id="cadastro">
+            <div class="container">
+                <div class="form-container-card">
+                    <div class="form-split">
+                        <div class="form-hero-side">
+                            <div class="logo-symbol white-mode">
+                                <span class="logo-name">Raiz</span>
+                                <span class="logo-dot"></span>
+                            </div>
+                            <span class="form-brand-sub">— Agro Hub —</span>
+
+                            <h3 class="form-side-title">Conte seu problema e a gente te ajuda a resolver</h3>
+                            <p class="form-side-lead">É rápido, é de graça, e você vai ser um dos primeiros a usar o Raiz.</p>
+
+                            <div class="form-side-bullets">
+                                <div class="b-item"><i class="fa-solid fa-check"></i> Não custa nada preencher</div>
+                                <div class="b-item"><i class="fa-solid fa-check"></i> Só te mostramos soluções que já foram conferidas</div>
+                                <div class="b-item"><i class="fa-solid fa-check"></i> Você fala direto com a empresa, sem enrolação</div>
+                            </div>
+
+                            <div class="contact-direct">
+                                <p><i class="fa-solid fa-globe"></i> www.raizagrohub.com.br</p>
+                                <p><i class="fa-brands fa-instagram"></i> @raizagrohub</p>
+                            </div>
+                        </div>
+
+                        <div class="form-inputs-side">
+                            <div class="type-selector">
+                                <a href="cadastro-produtor.html" class="type-btn active">
+                                    <i class="fa-solid fa-wheat-awn"></i> Sou Produtor Rural
+                                </a>
+                                <a href="cadastro-empresa.html" class="type-btn">
+                                    <i class="fa-solid fa-microchip"></i> Sou Empresa de Tecnologia
+                                </a>
+                            </div>
+
+                            <p class="form-side-lead" style="margin-top: 1.5rem;">
+                                Clique em uma das opções acima para contar seu problema (se você é produtor) ou mostrar sua solução (se você é empresa). É rápido e não custa nada.
+                            </p>
+
+                            <p class="form-note">
+                                <i class="fa-solid fa-lock"></i> Seus dados estão seguros e ninguém vai vender ou compartilhar sem sua permissão.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand-col">
+                <div class="brand-logo">
+                    <div class="logo-symbol">
+                        <span class="logo-name">Raiz</span>
+                        <span class="logo-dot"></span>
+                    </div>
+                    <div class="logo-subline">
+                        <span class="dash">—</span> Agro Hub <span class="dash">—</span>
+                    </div>
+                </div>
+                <p class="footer-motto">Conectando agronegócio, inovação e oportunidades.</p>
+                <div class="footer-social-links">
+                    <a href="https://instagram.com/raizagrohub" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-col">
+                <h5>Navegação</h5>
+                <ul>
+                    <li><a href="#proposito">O Problema</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#matchmaking">Matchmaking IA</a></li>
+                    <li><a href="#mercado">Mercado & Oportunidade</a></li>
+                    <li><a href="#modelo">Diferenciais</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h5>Ecossistema</h5>
+                <ul>
+                    <li><a href="#cadastro">Para Produtores</a></li>
+                    <li><a href="#cadastro">Para Empresas</a></li>
+                    <li><a href="#modelo">Apoio Acrissul</a></li>
+                    <li><a href="#modelo">Rota Bioceânica</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact-col">
+                <h5>Contato Oficial</h5>
+                <p><i class="fa-solid fa-globe"></i> www.raizagrohub.com.br</p>
+                <p><i class="fa-brands fa-instagram"></i> @raizagrohub</p>
+                <p><i class="fa-solid fa-location-dot"></i> Campo Grande / MS - Centro-Oeste</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="container bottom-flex">
+                <p>&copy; 2026 Raiz Agro Hub. Todos os direitos reservados.</p>
+                <div class="bottom-legal">
+                    <a href="#">Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+            <div class="container">
+                <p class="footer-credit">Um produto desenvolvido por <a href="https://kerossolucoes.com.br/" target="_blank" rel="noopener">Keros Soluções Inteligentes</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
