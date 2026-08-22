@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raiz Agro Hub | Inteligência e Tecnologia para o Agronegócio</title>
+    <meta name="description" content="Plataforma integrada de inteligência agrícola, monitoramento IoT, gestão de safras e cotações em tempo real para maximizar a produtividade do campo.">
+    <meta name="keywords" content="agronegócio, agtech, gestão agrícola, monitoramento por drones, cotações agro, soja, milho, iot no campo">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Raiz Agro Hub | Conectando a Força da Terra ao Futuro da Tecnologia">
+    <meta property="og:description" content="Transforme a gestão da sua fazenda com dados em tempo real, inteligência artificial e conectividade total.">
+    <meta property="og:image" content="assets/images/hero.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Market Ticker Bar -->
+    <div class="ticker-bar">
+        <div class="ticker-container">
+            <span class="ticker-label"><i class="fa-solid fa-chart-line"></i> Mercado em Tempo Real</span>
+            <div class="ticker-wrapper" id="tickerWrapper">
+                <!-- Ticker items dynamically injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name">RAIZ<span class="text-accent">AGRO</span></span>
+                    <span class="brand-sub">HUB DE INTELIGÊNCIA</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#solucoes" class="nav-link">Soluções</a>
+                <a href="#cotacoes" class="nav-link">Mercado</a>
+                <a href="#calculadora" class="nav-link">Calculadora ROI</a>
+                <a href="#depoimentos" class="nav-link">Casos de Sucesso</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#proposta" class="btn btn-outline" id="btnDemoHeader">Demonstração</a>
+                <a href="#proposta" class="btn btn-primary">Solicitar Proposta</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text"><i class="fa-solid fa-shield-halved"></i> Ecossistema Agrícola 4.0</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Conectando a <span class="text-gradient">força da terra</span> ao futuro do agronegócio
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Centralize a gestão de safras, telemetria por IoT, cotações em tempo real e inteligência preditiva em uma única plataforma feita para o produtor rural moderno.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#proposta" class="btn btn-primary btn-lg btn-glow">
+                            <span>Solicitar Proposta Personalizada</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#calculadora" class="btn btn-secondary btn-lg">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Calcular Economia</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-trust-badges">
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Sincronização 100% Offline</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Integração com Drones & IoT</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Suporte Técnico no Campo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-media">
+                    <div class="hero-card-wrapper">
+                        <div class="hero-image-container">
+                            <img src="assets/images/hero.jpg" alt="Painel Raiz Agro Hub no Campo" class="hero-img">
+                            <div class="hero-img-overlay"></div>
+                        </div>
+
+                        <!-- Floating Stat Badges -->
+                        <div class="floating-badge badge-top">
+                            <div class="badge-icon icon-emerald"><i class="fa-solid fa-wheat-awn"></i></div>
+                            <div class="badge-info">
+                                <span class="badge-val">+35%</span>
+                                <span class="badge-lbl">Produtividade de Safras</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom">
+                            <div class="badge-icon icon-blue"><i class="fa-solid fa-droplet"></i></div>
+                            <div class="badge-info">
+                                <span class="badge-val">-22%</span>
+                                <span class="badge-lbl">Redução de Insumos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-section">
+            <div class="container grid-stats">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="1200000">+0</div>
+                    <div class="stat-label">Hectares Geridos no Brasil</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="450">+0</div>
+                    <div class="stat-label">Fazendas e Cooperativas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="99.4">0%</div>
+                    <div class="stat-label">Precisão Preditiva de Safras</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="28000000">R$ 0M</div>
+                    <div class="stat-label">Economia Gerada aos Produtores</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Grid -->
+        <section class="solutions-section" id="solucoes">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">TECNOLOGIA DE PONTA</span>
+                    <h2 class="section-title">Soluções integradas para cada etapa da sua produção</h2>
+                    <p class="section-desc">Uma suíte completa de ferramentas desenvolvidas especificamente para os desafios do produtor rural brasileiro.</p>
+                </div>
+
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h3>Gestão Inteligente de Safras</h3>
+                        <p>Acompanhamento desde o preparo do solo até a colheita. Controle de custos por talhão, estocagem e margem líquida em tempo real.</p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Análise de custos por hectare</li>
+                            <li><i class="fa-solid fa-check"></i> Controle de estoque de defensivos</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-card card-featured">
+                        <div class="featured-ribbon">Mais Solicitado</div>
+                        <div class="card-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                        <h3>Telemetria IoT & Drones</h3>
+                        <p>Integre mapas NDVI, voos de drones e sensores de umidade do solo diretamente no seu celular ou computador.</p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Detecção precoce de pragas e estresse</li>
+                            <li><i class="fa-solid fa-check"></i> Mapas de aplicação em taxa variável</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
+                        <h3>Hub de Cotações & Hedge</h3>
+                        <p>Monitore preços das principais commodities (Soja, Milho, Boi) na B3 e Chicago. Tome decisões estratégicas de comercialização.</p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Alertas de variação de preços</li>
+                            <li><i class="fa-solid fa-check"></i> Simulador de trava de preços</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="card-icon"><i class="fa-solid fa-wifi"></i></div>
+                        <h3>Conectividade Campo-Cidade</h3>
+                        <p>Funciona perfeitamente sem internet no campo. Os dados são coletados offline e sincronizados assim que houver sinal.</p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> App mobile para Android e iOS</li>
+                            <li><i class="fa-solid fa-check"></i> Sincronização automática em nuvem</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="card-icon"><i class="fa-solid fa-tree"></i></div>
+                        <h3>Rastreabilidade & ESG</h3>
+                        <p>Gere laudos ambientais, conformidade com o CAR e histórico de sustentabilidade exigidos para exportação e crédito agrícola.</p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Relatórios para certificações</li>
+                            <li><i class="fa-solid fa-check"></i> Cálculo da pegada de carbono</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Inteligência Climática</h3>
+                        <p>Previsões microclimáticas de altíssima precisão focadas nas coordenadas geográficas exatas das suas propriedades.</p>
+                        <ul class="card-features">
+                            <li><i class="fa-solid fa-check"></i> Alerta de janela ideal de plantio</li>
+                            <li><i class="fa-solid fa-check"></i> Previsão de geadas e chuvas fortes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Commodity Market Section -->
+        <section class="market-section" id="cotacoes">
+            <div class="container">
+                <div class="market-box">
+                    <div class="market-header">
+                        <div>
+                            <span class="section-tag">INDICADORES FINANCEIROS</span>
+                            <h2 class="section-title text-white">Painel de Cotações do Agronegócio</h2>
+                        </div>
+                        <div class="market-status">
+                            <span class="pulse-dot"></span>
+                            <span>Mercado Aberto - Atualizado ao vivo</span>
+                        </div>
+                    </div>
+
+                    <div class="market-grid" id="marketCardsContainer">
+                        <!-- Filled dynamically by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive ROI Calculator Section -->
+        <section class="calculator-section" id="calculadora">
+            <div class="container">
+                <div class="grid-calculator">
+                    <div class="calc-info">
+                        <span class="section-tag">SIMULADOR FINANCEIRO</span>
+                        <h2 class="section-title">Descubra o potencial de retorno na sua propriedade</h2>
+                        <p class="section-desc">Insira o tamanho da sua área plantada e a cultura principal para calcular a economia de insumos estimada e o incremento na margem financeira com o Raiz Agro Hub.</p>
+                        
+                        <div class="calc-highlights">
+                            <div class="hl-item">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <span>Retorno sobre o investimento em menos de 1 safra</span>
+                            </div>
+                            <div class="hl-item">
+                                <i class="fa-solid fa-gas-pump"></i>
+                                <span>Redução comprovada de diesel e fertilizantes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-card">
+                        <div class="calc-form-group">
+                            <label for="cropSelect">Cultura Principal:</label>
+                            <select id="cropSelect" class="form-control">
+                                <option value="soja">Soja (Sacas/ha)</option>
+                                <option value="milho">Milho (Sacas/ha)</option>
+                                <option value="algodao">Algodão (Arrobas/ha)</option>
+                                <option value="pecuaria">Pecuária / Boi (Cabeças)</option>
+                            </select>
+                        </div>
+
+                        <div class="calc-form-group">
+                            <div class="slider-header">
+                                <label for="areaRange">Área Total Plantada:</label>
+                                <span class="slider-value" id="areaValue">500 Hectares</span>
+                            </div>
+                            <input type="range" id="areaRange" min="50" max="10000" step="50" value="500" class="form-range">
+                        </div>
+
+                        <div class="calc-results">
+                            <div class="result-box">
+                                <span class="result-label">Economia Anual Estimada em Insumos</span>
+                                <span class="result-val text-accent" id="resEconomia">R$ 145.000</span>
+                            </div>
+                            <div class="result-box">
+                                <span class="result-label">Ganho Est. em Produtividade</span>
+                                <span class="result-val text-white" id="resProdutividade">+3.5 Sacas/ha</span>
+                            </div>
+                        </div>
+
+                        <a href="#proposta" class="btn btn-primary btn-block btn-lg btn-calc-submit">
+                            <span>Quero Alcançar Este Resultado</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section" id="depoimentos">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">CASOS DE SUCESSO</span>
+                    <h2 class="section-title">Quem usa o Raiz Agro Hub aprova</h2>
+                    <p class="section-desc">Depoimentos reais de produtores que transformaram a rentabilidade de suas fazendas.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Com os mapas de aplicação em taxa variável do Raiz Agro Hub, reduzimos em 18% o consumo de adubo na última safra de soja. A plataforma se pagou no primeiro mês."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                            <div>
+                                <h4 class="author-name">Ricardo Silveira</h4>
+                                <span class="author-role">Produtor Rural - Rio Verde / GO (2.400 ha)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"O grande diferencial foi funcionar no aplicativo sem internet na fazenda. Meus operadores registram as atividades no campo e tudo sincroniza na sede."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fa-solid fa-user-gear"></i></div>
+                            <div>
+                                <h4 class="author-name">Mariana Alencastro</h4>
+                                <span class="author-role">Gerente Operacional - Sorriso / MT (5.000 ha)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"A inteligência das cotações em tempo real nos ajudou a travar o preço do milho no melhor momento do ano. Recomendo fortemente para qualquer cooperativa."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fa-solid fa-user-check"></i></div>
+                            <div>
+                                <h4 class="author-name">Carlos Eduardo Mendes</h4>
+                                <span class="author-role">Diretor Comercial - Cooperativa AgroSul / PR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proposal / Demo Request Form -->
+        <section class="proposal-section" id="proposta">
+            <div class="container">
+                <div class="proposal-wrapper">
+                    <div class="proposal-content">
+                        <span class="section-tag tag-light">PROPOSTA COMERCIAL</span>
+                        <h2 class="section-title text-white">Pronto para elevar o patamar tecnológico da sua fazenda?</h2>
+                        <p class="proposal-desc">Preencha o formulário para receber uma proposta personalizada e agendar uma demonstração guiada por um de nossos especialistas em tecnologia agrícola.</p>
+                        
+                        <div class="proposal-features">
+                            <div class="p-feat">
+                                <i class="fa-solid fa-clock"></i>
+                                <span>Resposta em até 2 horas úteis</span>
+                            </div>
+                            <div class="p-feat">
+                                <i class="fa-solid fa-shield-cat"></i>
+                                <span>Sem compromisso ou custo de adesão</span>
+                            </div>
+                            <div class="p-feat">
+                                <i class="fa-solid fa-headset"></i>
+                                <span>Atendimento técnico especializado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proposal-form-card">
+                        <form id="proposalForm" novalidate>
+                            <h3 class="form-title">Solicitar Proposta</h3>
+
+                            <div class="form-group">
+                                <label for="formNome">Nome Completo *</label>
+                                <input type="text" id="formNome" class="form-input" placeholder="Ex: João da Silva" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="formEmail">E-mail Corporativo/Pessoal *</label>
+                                    <input type="email" id="formEmail" class="form-input" placeholder="joao@fazenda.com.br" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="formTelefone">WhatsApp / Telefone *</label>
+                                    <input type="tel" id="formTelefone" class="form-input" placeholder="(62) 99999-9999" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="formEstado">Estado (UF) *</label>
+                                    <select id="formEstado" class="form-input" required>
+                                        <option value="">Selecione</option>
+                                        <option value="GO">Goiás (GO)</option>
+                                        <option value="MT">Mato Grosso (MT)</option>
+                                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                                        <option value="PR">Paraná (PR)</option>
+                                        <option value="SP">São Paulo (SP)</option>
+                                        <option value="MG">Minas Gerais (MG)</option>
+                                        <option value="BA">Bahia (BA)</option>
+                                        <option value="RS">Rio Grande do Sul (RS)</option>
+                                        <option value="OUTRO">Outro Estado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="formHectares">Área (Hectares) *</label>
+                                    <select id="formHectares" class="form-input" required>
+                                        <option value="">Selecione a área</option>
+                                        <option value="1">Até 200 ha</option>
+                                        <option value="2">201 a 1.000 ha</option>
+                                        <option value="3">1.001 a 5.000 ha</option>
+                                        <option value="4">Acima de 5.000 ha</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="formMensagem">Mensagem ou Necessidade Específica (Opcional)</label>
+                                <textarea id="formMensagem" class="form-input form-textarea" placeholder="Conte-nos brevemente sobre sua operação agrícola..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Solicitação de Proposta</span>
+                            </button>
+
+                            <p class="form-privacy">
+                                <i class="fa-solid fa-lock"></i> Seus dados estão seguros conforme a LGPD.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Success -->
+    <div class="modal-backdrop" id="successModal">
+        <div class="modal-card text-center">
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3>Solicitação Enviada com Sucesso!</h3>
+            <p>Obrigado pelo interesse no <strong>Raiz Agro Hub</strong>. Nossa equipe de especialistas no agronegócio entrará em contato em breve através do WhatsApp/E-mail fornecido.</p>
+            <button class="btn btn-primary" id="btnCloseModal">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="brand-logo">
+                    <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="logo-text">
+                        <span class="brand-name">RAIZ<span class="text-accent">AGRO</span></span>
+                        <span class="brand-sub">HUB DE INTELIGÊNCIA</span>
+                    </div>
+                </a>
+                <p class="footer-desc">Plataforma líder em inteligência agrícola, monitoramento IoT e gestão integrada para o produtor rural brasileiro.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#cotacoes">Cotações ao Vivo</a></li>
+                    <li><a href="#calculadora">Calculadora de ROI</a></li>
+                    <li><a href="#depoimentos">Casos de Sucesso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soluções</h4>
+                <ul>
+                    <li><a href="#solucoes">Gestão de Safras</a></li>
+                    <li><a href="#solucoes">Drones & Telemetria</a></li>
+                    <li><a href="#solucoes">Inteligência Climática</a></li>
+                    <li><a href="#solucoes">Rastreabilidade ESG</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-envelope"></i> contato@raizagrohub.com.br</li>
+                    <li><i class="fa-solid fa-phone"></i> 0800 777 RAIZ (7249)</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Polo de Inovação Agro - Goiânia / GO</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Raiz Agro Hub. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
