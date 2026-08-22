@@ -1823,6 +1823,25 @@ h1, h2, h3, h4, h5, h6 {
     color: #FFFFFF;
 }
 
+.footer-credit {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.78rem;
+    color: #71937E;
+    text-align: center;
+}
+
+.footer-credit a {
+    color: #71937E;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.footer-credit a:hover {
+    color: #FFFFFF;
+}
+
 /* ==========================================================================
    RESPONSIVE DESIGN (BREAKPOINTS)
    ========================================================================== */
