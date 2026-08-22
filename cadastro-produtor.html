@@ -109,6 +109,7 @@
     </div>
 
     <script src="mvp-data.js"></script>
+    <script src="mvp-mask.js"></script>
     <script>
         (function () {
             function preencherSelect(select, opcoes, formatarLabel) {
@@ -119,6 +120,8 @@
                     select.appendChild(option);
                 });
             }
+
+            mvpAplicarMascaraTelefone(document.getElementById('telefone'));
 
             preencherSelect(document.getElementById('uf'), MVP_ESTADOS, function (uf) {
                 return uf === 'OUTRO' ? 'Outro Estado' : uf;
