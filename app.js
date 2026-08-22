@@ -6,7 +6,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initMatchmakingSimulator();
-    initLeadForm();
 });
 
 /* ==========================================================================
@@ -180,78 +179,8 @@ function loadScenario(key) {
 }
 
 /* ==========================================================================
-   3. FORMULÁRIO DE CADASTRO (PRODUTOR / AGTECH)
+   3. SEÇÃO DE CADASTRO (PRODUTOR / EMPRESA)
+   Os botões "Sou Produtor Rural" / "Sou Empresa de Tecnologia" agora são
+   links diretos para cadastro-produtor.html / cadastro-empresa.html
+   (formulários reais do MVP), sem lógica de toggle/submit aqui.
    ========================================================================== */
-function initLeadForm() {
-    const btnTypeProducer = document.getElementById('btnTypeProducer');
-    const btnTypeAgtech = document.getElementById('btnTypeAgtech');
-    const leadTypeInput = document.getElementById('leadType');
-    const lblSegmento = document.getElementById('lblSegmento');
-    const lblDesc = document.getElementById('lblDesc');
-    const leadSegmento = document.getElementById('leadSegmento');
-    const leadDesc = document.getElementById('leadDesc');
-
-    const leadForm = document.getElementById('leadForm');
-    const feedbackModal = document.getElementById('feedbackModal');
-    const btnModalClose = document.getElementById('btnModalClose');
-
-    if (btnTypeProducer && btnTypeAgtech) {
-        btnTypeProducer.addEventListener('click', () => {
-            btnTypeProducer.classList.add('active');
-            btnTypeAgtech.classList.remove('active');
-            leadTypeInput.value = 'produtor';
-
-            lblSegmento.textContent = 'Cultura Principal / Atividade *';
-            leadSegmento.placeholder = 'Ex: Soja, Milho, Pecuária, Cana';
-
-            lblDesc.textContent = 'Principal desafio ou dor que você enfrenta no campo';
-            leadDesc.placeholder = 'Conte-nos sobre o problema que deseja resolver na sua propriedade...';
-        });
-
-        btnTypeAgtech.addEventListener('click', () => {
-            btnTypeAgtech.classList.add('active');
-            btnTypeProducer.classList.remove('active');
-            leadTypeInput.value = 'agtech';
-
-            lblSegmento.textContent = 'Nome da Solução / AgTech *';
-            leadSegmento.placeholder = 'Ex: Plataforma de Drones, Bioinsumos, Software de Gestão';
-
-            lblDesc.textContent = 'Descrição da solução e perfil de produtor que busca atender';
-            leadDesc.placeholder = 'Descreva os diferenciais da sua solução técnica e estágio de validação...';
-        });
-    }
-
-    if (leadForm) {
-        leadForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const nome = document.getElementById('leadNome').value.trim();
-            const email = document.getElementById('leadEmail').value.trim();
-            const phone = document.getElementById('leadPhone').value.trim();
-
-            if (!nome || !email || !phone) {
-                alert('Por favor, preencha todos os campos obrigatórios (*).');
-                return;
-            }
-
-            // Exibir modal de sucesso
-            if (feedbackModal) {
-                feedbackModal.classList.add('active');
-            }
-
-            leadForm.reset();
-        });
-    }
-
-    if (btnModalClose && feedbackModal) {
-        btnModalClose.addEventListener('click', () => {
-            feedbackModal.classList.remove('active');
-        });
-
-        feedbackModal.addEventListener('click', (e) => {
-            if (e.target === feedbackModal) {
-                feedbackModal.classList.remove('active');
-            }
-        });
-    }
-}

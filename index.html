@@ -675,87 +675,27 @@
 
                         <div class="form-inputs-side">
                             <div class="type-selector">
-                                <button type="button" class="type-btn active" id="btnTypeProducer">
+                                <a href="cadastro-produtor.html" class="type-btn active">
                                     <i class="fa-solid fa-wheat-awn"></i> Sou Produtor Rural
-                                </button>
-                                <button type="button" class="type-btn" id="btnTypeAgtech">
+                                </a>
+                                <a href="cadastro-empresa.html" class="type-btn">
                                     <i class="fa-solid fa-microchip"></i> Sou Empresa de Tecnologia
-                                </button>
+                                </a>
                             </div>
 
-                            <form id="leadForm" novalidate>
-                                <input type="hidden" id="leadType" value="produtor">
+                            <p class="form-side-lead" style="margin-top: 1.5rem;">
+                                Clique em uma das opções acima para contar seu problema (se você é produtor) ou mostrar sua solução (se você é empresa). É rápido e não custa nada.
+                            </p>
 
-                                <div class="form-group">
-                                    <label for="leadNome">Nome Completo *</label>
-                                    <input type="text" id="leadNome" class="f-control" placeholder="Seu nome" required>
-                                </div>
-
-                                <div class="form-row-2">
-                                    <div class="form-group">
-                                        <label for="leadEmail">E-mail *</label>
-                                        <input type="email" id="leadEmail" class="f-control" placeholder="seu@email.com" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="leadPhone">WhatsApp / Telefone *</label>
-                                        <input type="tel" id="leadPhone" class="f-control" placeholder="(67) 99999-9999" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-row-2">
-                                    <div class="form-group">
-                                        <label for="leadEstado">Estado (UF) *</label>
-                                        <select id="leadEstado" class="f-control" required>
-                                            <option value="">Selecione</option>
-                                            <option value="MS" selected>Mato Grosso do Sul (MS)</option>
-                                            <option value="MT">Mato Grosso (MT)</option>
-                                            <option value="GO">Goiás (GO)</option>
-                                            <option value="PR">Paraná (PR)</option>
-                                            <option value="SP">São Paulo (SP)</option>
-                                            <option value="MG">Minas Gerais (MG)</option>
-                                            <option value="BA">Bahia (BA)</option>
-                                            <option value="RS">Rio Grande do Sul (RS)</option>
-                                            <option value="OUTRO">Outro Estado</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="leadSegmento" id="lblSegmento">O que você planta ou cria? *</label>
-                                        <input type="text" id="leadSegmento" class="f-control" placeholder="Ex: Soja, Milho, Gado de corte" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="leadDesc" id="lblDesc">Qual é o problema que você quer resolver?</label>
-                                    <textarea id="leadDesc" class="f-control f-area" placeholder="Conte com suas palavras o que está te atrapalhando na fazenda..."></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary btn-block btn-lg">
-                                    <span>Enviar meu Cadastro</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-
-                                <p class="form-note">
-                                    <i class="fa-solid fa-lock"></i> Seus dados estão seguros e ninguém vai vender ou compartilhar sem sua permissão.
-                                </p>
-                            </form>
+                            <p class="form-note">
+                                <i class="fa-solid fa-lock"></i> Seus dados estão seguros e ninguém vai vender ou compartilhar sem sua permissão.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- Modal de Sucesso -->
-    <div class="modal-backdrop" id="feedbackModal">
-        <div class="modal-card text-center">
-            <div class="modal-icon-leaf">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <h3>Prontinho, deu certo!</h3>
-            <p>Obrigado por se cadastrar no <strong>Raiz Agro Hub</strong>. Nossa equipe vai olhar seu problema com calma e te conectar com quem pode ajudar.</p>
-            <button class="btn btn-primary" id="btnModalClose">Fechar</button>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
