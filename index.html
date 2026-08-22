@@ -43,16 +43,15 @@
             <nav class="nav-menu" id="navMenu">
                 <a href="#proposito" class="nav-link">O Problema</a>
                 <a href="#como-funciona" class="nav-link">Como Funciona</a>
-                <a href="#matchmaking" class="nav-link">Como Achamos sua Solução</a>
+                <a href="#matchmaking" class="nav-link">Matchmaking IA</a>
                 <a href="#mercado" class="nav-link">Mercado</a>
-                <a href="#modelo" class="nav-link">Modelo & Diferenciais</a>
-                <a href="#equipe" class="nav-link">Equipe</a>
+                <a href="#modelo" class="nav-link">Diferenciais</a>
             </nav>
 
             <div class="nav-actions">
-                <a href="#cadastro" class="btn btn-outline">Sou Empresa</a>
-                <a href="#cadastro" class="btn btn-primary">Quero fazer parte</a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <a href="#cadastro" class="btn btn-outline" id="btnNavEmpresa">Sou Empresa</a>
+                <a href="#cadastro" class="btn btn-primary" id="btnNavParticipar">Quero fazer parte</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -645,95 +644,7 @@
             </div>
         </section>
 
-        <!-- Section 7: Equipe e Próximos Passos (Slide 8) -->
-        <section class="section-team" id="equipe">
-            <div class="container">
-                <div class="section-title-wrap text-center">
-                    <span class="sub-header-tag">LIDERANÇA & EXECUÇÃO</span>
-                    <h2 class="main-heading">Nosso time fundador</h2>
-                    <p class="heading-sub">Experiência multidisciplinar combinando agronegócio, tecnologia, IA e estratégia.</p>
-                </div>
 
-                <div class="team-grid">
-                    <!-- Adriana Tozzetti -->
-                    <div class="team-card">
-                        <div class="team-icon"><i class="fa-solid fa-compass"></i></div>
-                        <div class="team-info">
-                            <h4>Adriana Tozzetti</h4>
-                            <span class="team-role">Gestão e Estratégia</span>
-                        </div>
-                    </div>
-
-                    <!-- Fernando Riedo -->
-                    <div class="team-card">
-                        <div class="team-icon"><i class="fa-solid fa-code"></i></div>
-                        <div class="team-info">
-                            <h4>Fernando Riedo</h4>
-                            <span class="team-role">Tecnologia</span>
-                        </div>
-                    </div>
-
-                    <!-- Antônio Coelho -->
-                    <div class="team-card">
-                        <div class="team-icon"><i class="fa-solid fa-brain"></i></div>
-                        <div class="team-info">
-                            <h4>Antônio Coelho</h4>
-                            <span class="team-role">Inovação e IA Aplicada</span>
-                        </div>
-                    </div>
-
-                    <!-- Wellington Ramos -->
-                    <div class="team-card">
-                        <div class="team-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-                        <div class="team-info">
-                            <h4>Wellington Ramos</h4>
-                            <span class="team-role">Agro e Relacionamento com Produtores</span>
-                        </div>
-                    </div>
-
-                    <!-- Fabíola Camilo -->
-                    <div class="team-card">
-                        <div class="team-icon"><i class="fa-solid fa-comments"></i></div>
-                        <div class="team-info">
-                            <h4>Fabíola Camilo</h4>
-                            <span class="team-role">Relacionamento, Entidades e Comunicação</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Roadmap de Expansão -->
-                <div class="roadmap-wrapper">
-                    <h3 class="roadmap-title text-center">Próximos Passos: Do MVP à expansão com impacto real no agro</h3>
-                    <div class="roadmap-grid">
-                        <div class="road-step">
-                            <div class="r-num">01</div>
-                            <strong>MVP no ar</strong>
-                            <p>Plataforma funcional disponível para uso e testes com parceiros estratégicos.</p>
-                        </div>
-                        <div class="road-step">
-                            <div class="r-num">02</div>
-                            <strong>Primeiros cadastros</strong>
-                            <p>Engajamento de produtores, AgTechs e instituições para formar a base inicial.</p>
-                        </div>
-                        <div class="road-step">
-                            <div class="r-num">03</div>
-                            <strong>Primeiros matches</strong>
-                            <p>Conexões reais entre quem busca e quem oferece soluções validadas em campo.</p>
-                        </div>
-                        <div class="road-step">
-                            <div class="r-num">04</div>
-                            <strong>Pilotos e negócios</strong>
-                            <p>Projetos-piloto no campo gerando resultados, cases e novas parcerias comerciais.</p>
-                        </div>
-                        <div class="road-step">
-                            <div class="r-num">05</div>
-                            <strong>Monetização & expansão</strong>
-                            <p>Modelos de receita sustentáveis e escala para novas regiões e setores.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Section 8: Formulário de Cadastro / Lead Capture (Slide 1, 7 & 9) -->
         <section class="section-lead-form" id="cadastro">
@@ -764,87 +675,27 @@
 
                         <div class="form-inputs-side">
                             <div class="type-selector">
-                                <button type="button" class="type-btn active" id="btnTypeProducer">
+                                <a href="cadastro-produtor.html" class="type-btn active">
                                     <i class="fa-solid fa-wheat-awn"></i> Sou Produtor Rural
-                                </button>
-                                <button type="button" class="type-btn" id="btnTypeAgtech">
+                                </a>
+                                <a href="cadastro-empresa.html" class="type-btn">
                                     <i class="fa-solid fa-microchip"></i> Sou Empresa de Tecnologia
-                                </button>
+                                </a>
                             </div>
 
-                            <form id="leadForm" novalidate>
-                                <input type="hidden" id="leadType" value="produtor">
+                            <p class="form-side-lead" style="margin-top: 1.5rem;">
+                                Clique em uma das opções acima para contar seu problema (se você é produtor) ou mostrar sua solução (se você é empresa). É rápido e não custa nada.
+                            </p>
 
-                                <div class="form-group">
-                                    <label for="leadNome">Nome Completo *</label>
-                                    <input type="text" id="leadNome" class="f-control" placeholder="Seu nome" required>
-                                </div>
-
-                                <div class="form-row-2">
-                                    <div class="form-group">
-                                        <label for="leadEmail">E-mail *</label>
-                                        <input type="email" id="leadEmail" class="f-control" placeholder="seu@email.com" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="leadPhone">WhatsApp / Telefone *</label>
-                                        <input type="tel" id="leadPhone" class="f-control" placeholder="(67) 99999-9999" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-row-2">
-                                    <div class="form-group">
-                                        <label for="leadEstado">Estado (UF) *</label>
-                                        <select id="leadEstado" class="f-control" required>
-                                            <option value="">Selecione</option>
-                                            <option value="MS" selected>Mato Grosso do Sul (MS)</option>
-                                            <option value="MT">Mato Grosso (MT)</option>
-                                            <option value="GO">Goiás (GO)</option>
-                                            <option value="PR">Paraná (PR)</option>
-                                            <option value="SP">São Paulo (SP)</option>
-                                            <option value="MG">Minas Gerais (MG)</option>
-                                            <option value="BA">Bahia (BA)</option>
-                                            <option value="RS">Rio Grande do Sul (RS)</option>
-                                            <option value="OUTRO">Outro Estado</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="leadSegmento" id="lblSegmento">O que você planta ou cria? *</label>
-                                        <input type="text" id="leadSegmento" class="f-control" placeholder="Ex: Soja, Milho, Gado de corte" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="leadDesc" id="lblDesc">Qual é o problema que você quer resolver?</label>
-                                    <textarea id="leadDesc" class="f-control f-area" placeholder="Conte com suas palavras o que está te atrapalhando na fazenda..."></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary btn-block btn-lg">
-                                    <span>Enviar meu Cadastro</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-
-                                <p class="form-note">
-                                    <i class="fa-solid fa-lock"></i> Seus dados estão seguros e ninguém vai vender ou compartilhar sem sua permissão.
-                                </p>
-                            </form>
+                            <p class="form-note">
+                                <i class="fa-solid fa-lock"></i> Seus dados estão seguros e ninguém vai vender ou compartilhar sem sua permissão.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- Modal de Sucesso -->
-    <div class="modal-backdrop" id="feedbackModal">
-        <div class="modal-card text-center">
-            <div class="modal-icon-leaf">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <h3>Prontinho, deu certo!</h3>
-            <p>Obrigado por se cadastrar no <strong>Raiz Agro Hub</strong>. Nossa equipe vai olhar seu problema com calma e te conectar com quem pode ajudar.</p>
-            <button class="btn btn-primary" id="btnModalClose">Fechar</button>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -872,9 +723,9 @@
                 <ul>
                     <li><a href="#proposito">O Problema</a></li>
                     <li><a href="#como-funciona">Como Funciona</a></li>
-                    <li><a href="#matchmaking">Como Achamos sua Solução</a></li>
+                    <li><a href="#matchmaking">Matchmaking IA</a></li>
                     <li><a href="#mercado">Mercado & Oportunidade</a></li>
-                    <li><a href="#equipe">Equipe Fundadora</a></li>
+                    <li><a href="#modelo">Diferenciais</a></li>
                 </ul>
             </div>
 
