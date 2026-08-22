@@ -1,0 +1,20 @@
+{
+  "name": "raiz-agro-hub",
+  "version": "1.0.0",
+  "description": "Raiz Agro Hub - Conectando agronegócio, inovação e oportunidades",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "start": "npx serve -l 3000 .",
+    "serve": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "agro",
+    "hub",
+    "agtech",
+    "matchmaking",
+    "landing-page"
+  ],
+  "author": "Raiz Agro Hub Team",
+  "license": "MIT"
+}
