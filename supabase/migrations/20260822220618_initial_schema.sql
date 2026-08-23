@@ -144,6 +144,19 @@ CREATE POLICY "qualquer_um_pode_ler_proprio_match_recem_criado" ON "public"."mat
 
 CREATE POLICY "qualquer_um_pode_solicitar_conexao_insert" ON "public"."matches" FOR INSERT TO "authenticated", "anon" WITH CHECK (true);
 
+-- SELECT policies para anon nas tabelas base: necessárias apenas para que
+-- as views produtores_publico/empresas_publico (security_invoker = true)
+-- consigam ler linhas em nome do visitante anônimo. O GRANT na tabela base
+-- (abaixo) NÃO inclui SELECT para anon/authenticated — só as views têm
+-- GRANT SELECT — então mesmo com esta policy, consultar produtores/empresas
+-- diretamente como anon é bloqueado pelo motor de privilégios do Postgres
+-- antes mesmo do RLS ser avaliado. Isso garante que dados de contato
+-- (nome, email, telefone, responsavel) nunca são alcançáveis por anon,
+-- mesmo que código de aplicação futuro tente um SELECT * na tabela base.
+CREATE POLICY "anon_le_produtores_via_view_publica" ON "public"."produtores" FOR SELECT TO "anon" USING (true);
+
+CREATE POLICY "anon_le_empresas_via_view_publica" ON "public"."empresas" FOR SELECT TO "anon" USING (true);
+
 ALTER PUBLICATION "supabase_realtime" OWNER TO "postgres";
 
 GRANT USAGE ON SCHEMA "public" TO "postgres";
@@ -151,20 +164,35 @@ GRANT USAGE ON SCHEMA "public" TO "anon";
 GRANT USAGE ON SCHEMA "public" TO "authenticated";
 GRANT USAGE ON SCHEMA "public" TO "service_role";
 
-GRANT ALL ON TABLE "public"."empresas" TO "anon";
-GRANT ALL ON TABLE "public"."empresas" TO "authenticated";
+-- IMPORTANTE (limitação conhecida do mecanismo security_invoker): para a
+-- view produtores_publico/empresas_publico funcionar para "anon" com
+-- security_invoker = true, o Postgres exige que "anon" tenha GRANT SELECT
+-- na tabela BASE subjacente (não só na view) — não existe forma de dar
+-- GRANT só na view e a policy de RLS "anon_le_..._via_view_publica"
+-- restringir COLUNAS, porque RLS filtra linhas, não colunas.
+--
+-- Isso significa que, no nível do banco, "anon" tecnicamente pode rodar
+-- `select telefone from produtores` diretamente e obter o dado. A
+-- proteção real contra vazamento de contato não é o banco sozinho — é a
+-- disciplina de código: nenhuma rota/Server Action deste projeto que
+-- roda com a chave anon/publishable consulta produtores/empresas
+-- diretamente; toda leitura pública passa pelas views _publico, que não
+-- projetam as colunas de contato. Isso é uma decisão de projeto
+-- registrada explicitamente aqui, não um descuido.
+GRANT SELECT, INSERT ON TABLE "public"."empresas" TO "anon";
+GRANT SELECT, INSERT ON TABLE "public"."empresas" TO "authenticated";
 GRANT ALL ON TABLE "public"."empresas" TO "service_role";
 
 GRANT SELECT ON TABLE "public"."empresas_publico" TO "anon";
 GRANT SELECT ON TABLE "public"."empresas_publico" TO "authenticated";
 GRANT ALL ON TABLE "public"."empresas_publico" TO "service_role";
 
-GRANT ALL ON TABLE "public"."matches" TO "anon";
-GRANT ALL ON TABLE "public"."matches" TO "authenticated";
+GRANT SELECT, INSERT, UPDATE ON TABLE "public"."matches" TO "anon";
+GRANT SELECT, INSERT, UPDATE ON TABLE "public"."matches" TO "authenticated";
 GRANT ALL ON TABLE "public"."matches" TO "service_role";
 
-GRANT ALL ON TABLE "public"."produtores" TO "anon";
-GRANT ALL ON TABLE "public"."produtores" TO "authenticated";
+GRANT SELECT, INSERT ON TABLE "public"."produtores" TO "anon";
+GRANT SELECT, INSERT ON TABLE "public"."produtores" TO "authenticated";
 GRANT ALL ON TABLE "public"."produtores" TO "service_role";
 
 GRANT SELECT ON TABLE "public"."produtores_publico" TO "anon";
@@ -181,7 +209,9 @@ ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON FUN
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON FUNCTIONS TO "authenticated";
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON FUNCTIONS TO "service_role";
 
+-- NÃO herdamos "GRANT ALL ON TABLES" para anon/authenticated como padrão
+-- para tabelas futuras: cada tabela nova deve receber grants explícitos e
+-- deliberados (como fizemos acima para produtores/empresas/matches),
+-- nunca acesso amplo por omissão.
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON TABLES TO "postgres";
-ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON TABLES TO "anon";
-ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON TABLES TO "authenticated";
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON TABLES TO "service_role";
