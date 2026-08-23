@@ -22,7 +22,9 @@ export function ProdutorForm() {
       setErro(resultado.error);
       return;
     }
-    router.push(`/matches/produtor/${resultado.id}`);
+    const nome = formData.get("nome");
+    const query = typeof nome === "string" && nome.trim() !== "" ? `?nome=${encodeURIComponent(nome.trim())}` : "";
+    router.push(`/matches/produtor/${resultado.id}${query}`);
   }
 
   return (

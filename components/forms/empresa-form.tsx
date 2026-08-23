@@ -30,7 +30,9 @@ export function EmpresaForm() {
       setErro(resultado.error);
       return;
     }
-    router.push(`/matches/empresa/${resultado.id}`);
+    const nomeEmpresa = formData.get("nomeEmpresa");
+    const query = typeof nomeEmpresa === "string" && nomeEmpresa.trim() !== "" ? `?nome=${encodeURIComponent(nomeEmpresa.trim())}` : "";
+    router.push(`/matches/empresa/${resultado.id}${query}`);
   }
 
   return (
