@@ -36,19 +36,26 @@ O **Raiz Agro Hub** resolve o gap existente entre a demanda real dos produtores 
 
 ## 🛠️ Tecnologias
 
-- **HTML5 Semântico & Acessibilidade**
-- **Vanilla CSS3:** Design System moderno, layout responsivo e transições fluidas.
-- **JavaScript Moderno (ES6+):** Simulador de Matchmaking em tempo real e formulários interativos.
+- **Next.js 15 (App Router)** & **TypeScript**
+- **Tailwind CSS:** Design System moderno, layout responsivo e transições fluidas.
+- **Supabase:** Postgres (com RLS) + Auth.
+- **Playwright:** Testes E2E.
 - **Fontes:** `Outfit` & `Plus Jakarta Sans`.
 
 ---
 
 ## 🚀 Como Executar Localmente
 
-```bash
-python3 -m http.server 8000
-```
-Acesse [http://localhost:8000](http://localhost:8000).
+1. Instale as dependências: `npm install`
+2. Suba o Supabase local: `npx supabase start`
+3. Copie `.env.local.example` para `.env.local` e preencha com as chaves impressas pelo comando acima
+4. Rode o servidor de desenvolvimento: `npm run dev`
+5. Acesse `http://localhost:3000`
+
+### Testes
+
+- Testes unitários: `npm test`
+- Testes E2E (requer app + Supabase local rodando): `npm run test:e2e`
 
 ---
 
