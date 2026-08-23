@@ -33,3 +33,6 @@ next-env.d.ts
 # Testing
 /test-results/
 /playwright-report/
+
+# TypeScript
+*.tsbuildinfo
