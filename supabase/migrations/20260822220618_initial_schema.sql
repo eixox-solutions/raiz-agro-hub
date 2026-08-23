@@ -178,21 +178,32 @@ REVOKE ALL ON TABLE "public"."matches" FROM "anon", "authenticated";
 REVOKE ALL ON TABLE "public"."produtores_publico" FROM "anon", "authenticated";
 REVOKE ALL ON TABLE "public"."empresas_publico" FROM "anon", "authenticated";
 
--- produtores/empresas: SELECT concedido POR COLUNA (nunca a tabela
--- inteira) para anon/authenticated, cobrindo exatamente os campos não-
--- sensíveis já projetados pelas views produtores_publico/empresas_publico.
--- Isso é o que efetivamente impede um `select telefone from produtores`
--- (ou um `select *`) como anon: o Postgres rejeita a coluna fora da lista
--- de privilégio ANTES de qualquer avaliação de RLS — a proteção é do
+-- produtores/empresas: para "anon", SELECT concedido POR COLUNA (nunca a
+-- tabela inteira), cobrindo exatamente os campos não-sensíveis já
+-- projetados pelas views produtores_publico/empresas_publico. Isso é o
+-- que efetivamente impede um `select telefone from produtores` (ou um
+-- `select *`) como anon: o Postgres rejeita a coluna fora da lista de
+-- privilégio ANTES de qualquer avaliação de RLS — a proteção é do
 -- próprio banco, não uma convenção de código de aplicação.
+--
+-- Para "authenticated" (papel do admin logado via Supabase Auth), SELECT
+-- é concedido na TABELA INTEIRA (todas as colunas, incluindo contato) —
+-- isso é intencional: o admin precisa ver telefone/email/nome para
+-- entrar em contato com produtores e empresas. A policy de RLS
+-- "admin_le_produtores_completo"/"admin_le_empresas_completo" (FOR
+-- SELECT TO authenticated USING (true)) já restringe esse acesso a
+-- usuários autenticados; sem o GRANT completo aqui, essa policy nunca
+-- seria alcançada e o admin não conseguiria ler nada.
 GRANT INSERT ON TABLE "public"."produtores" TO "anon", "authenticated";
 GRANT SELECT (id, municipio, uf, atividade, categoria_desafio, desc_desafio, urgencia, porte, criado_em)
-  ON TABLE "public"."produtores" TO "anon", "authenticated";
+  ON TABLE "public"."produtores" TO "anon";
+GRANT SELECT ON TABLE "public"."produtores" TO "authenticated";
 GRANT ALL ON TABLE "public"."produtores" TO "service_role";
 
 GRANT INSERT ON TABLE "public"."empresas" TO "anon", "authenticated";
 GRANT SELECT (id, uf, regioes_atendidas, categoria_solucao, desc_solucao, estagio, porte_alvo, criado_em)
-  ON TABLE "public"."empresas" TO "anon", "authenticated";
+  ON TABLE "public"."empresas" TO "anon";
+GRANT SELECT ON TABLE "public"."empresas" TO "authenticated";
 GRANT ALL ON TABLE "public"."empresas" TO "service_role";
 
 GRANT SELECT ON TABLE "public"."empresas_publico" TO "anon";
