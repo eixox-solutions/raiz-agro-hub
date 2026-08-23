@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { CATEGORIAS, ESTADOS, ATIVIDADES, URGENCIAS, PORTES } from "@/lib/constants";
+import { CATEGORIAS, ESTADOS, ATIVIDADES, URGENCIAS, PORTES, ESTAGIOS, REGIOES_ATENDIDAS } from "@/lib/constants";
 
 function campoObrigatorio(formData: FormData, campo: string): string | null {
   const valor = formData.get(campo);
@@ -87,11 +87,14 @@ export async function cadastrarEmpresa(
   if (!ESTADOS.includes(uf as (typeof ESTADOS)[number])) {
     return { error: "Estado inválido." };
   }
-  if (regioesAtendidas !== "estado" && regioesAtendidas !== "nacional") {
+  if (!REGIOES_ATENDIDAS.includes(regioesAtendidas as (typeof REGIOES_ATENDIDAS)[number])) {
     return { error: "Região atendida inválida." };
   }
   if (!CATEGORIAS.includes(categoriaSolucao as (typeof CATEGORIAS)[number])) {
     return { error: "Categoria de solução inválida." };
+  }
+  if (!ESTAGIOS.includes(estagio as (typeof ESTAGIOS)[number])) {
+    return { error: "Estágio inválido." };
   }
   if (!PORTES.includes(porteAlvo as (typeof PORTES)[number])) {
     return { error: "Porte alvo inválido." };
