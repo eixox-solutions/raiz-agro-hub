@@ -22,3 +22,17 @@ Thumbs.db
 dist/
 build/
 .tmp/
+
+# Next.js
+.next/
+out/
+node_modules/
+.env.local
+next-env.d.ts
+
+# Testing
+/test-results/
+/playwright-report/
+
+# TypeScript
+*.tsbuildinfo

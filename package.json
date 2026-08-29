@@ -1,20 +1,35 @@
 {
   "name": "raiz-agro-hub",
-  "version": "1.0.0",
-  "description": "Raiz Agro Hub - Conectando agronegócio, inovação e oportunidades",
-  "main": "index.html",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Raiz Agro Hub - Plataforma de matchmaking entre produtores rurais e empresas de tecnologia do agro",
   "scripts": {
-    "dev": "npx serve -l 3000 .",
-    "start": "npx serve -l 3000 .",
-    "serve": "python3 -m http.server 3000"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
   },
-  "keywords": [
-    "agro",
-    "hub",
-    "agtech",
-    "matchmaking",
-    "landing-page"
-  ],
-  "author": "Raiz Agro Hub Team",
-  "license": "MIT"
+  "dependencies": {
+    "@supabase/ssr": "0.6.1",
+    "@supabase/supabase-js": "2.48.0",
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.1",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "autoprefixer": "10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.1.0",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8"
+  }
 }
