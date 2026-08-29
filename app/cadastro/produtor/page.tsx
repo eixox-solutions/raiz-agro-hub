@@ -1,11 +1,12 @@
+import Link from "next/link";
 import { ProdutorForm } from "@/components/forms/produtor-form";
 
 export default function CadastroProdutorPage() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-12">
-      <a href="/" className="text-sm text-text-muted mb-6 inline-block">
+      <Link href="/" className="text-sm text-text-muted mb-6 inline-block">
         ← Voltar para o site
-      </a>
+      </Link>
       <span className="inline-block text-accent font-medium mb-2">
         Sou Produtor Rural
       </span>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { rankearEmpresasParaProdutor, rankearProdutoresParaEmpresa } from "@/lib/match";
 import { MatchCard } from "@/components/matches/match-card";
@@ -77,9 +78,9 @@ export default async function MatchesPage({
 
     return (
       <main className="max-w-3xl mx-auto px-4 py-12">
-        <a href="/" className="text-sm text-text-muted mb-6 inline-block">
+        <Link href="/" className="text-sm text-text-muted mb-6 inline-block">
           ← Voltar para o site
-        </a>
+        </Link>
         <h1 className="font-heading text-3xl text-primary mb-2">
           Suas melhores opções, {nomeProdutor}
         </h1>
@@ -159,9 +160,9 @@ export default async function MatchesPage({
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
-      <a href="/" className="text-sm text-text-muted mb-6 inline-block">
+      <Link href="/" className="text-sm text-text-muted mb-6 inline-block">
         ← Voltar para o site
-      </a>
+      </Link>
       <h1 className="font-heading text-3xl text-primary mb-2">
         Produtores que combinam com sua solução
       </h1>
@@ -205,12 +206,12 @@ function ErroCadastroNaoEncontrado({
         Não encontramos esse cadastro
       </h1>
       <p className="text-text-muted mb-6">{mensagem}</p>
-      <a
+      <Link
         href={linkHref}
         className="inline-block bg-accent text-white font-heading font-semibold px-6 py-3 rounded-full"
       >
         {linkTexto}
-      </a>
+      </Link>
     </main>
   );
 }
@@ -230,12 +231,12 @@ function EstadoVazio({
         Ainda não temos combinações
       </h1>
       <p className="text-text-muted mb-6">{mensagem}</p>
-      <a
+      <Link
         href={linkHref}
         className="inline-block bg-accent text-white font-heading font-semibold px-6 py-3 rounded-full"
       >
         {linkTexto}
-      </a>
+      </Link>
     </main>
   );
 }
