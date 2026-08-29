@@ -1,0 +1,31 @@
+# Raiz Agro Hub
+
+> Plataforma de matchmaking gratuita que conecta produtores rurais a
+> empresas e AgTechs do agronegócio brasileiro, cruzando o problema do
+> produtor com a solução certa da empresa.
+
+Raiz Agro Hub resolve o gap entre a demanda dispersa dos produtores rurais
+(pouco tempo para pesquisar, dificuldade de achar fornecedores confiáveis)
+e o desafio das AgTechs e empresas de tecnologia do agro (alto custo de
+aquisição de clientes, dificuldade de validar soluções em campo). A
+plataforma faz o cruzamento automático entre o desafio relatado pelo
+produtor e o catálogo de soluções das empresas cadastradas, gerando uma
+lista de matches ranqueados por aderência.
+
+## Como funciona
+
+1. Produtor ou empresa se cadastra contando seu problema ou sua solução.
+2. O sistema cruza critérios técnicos, geográficos e de porte/estágio.
+3. Cada lado recebe uma lista de matches ranqueados por % de aderência.
+4. O contato entre as partes acontece diretamente a partir do match.
+
+## Páginas principais
+
+- [Cadastro de Produtor Rural](https://www.raizagrohub.com.br/cadastro/produtor): formulário para produtores relatarem seu desafio no campo.
+- [Cadastro de Empresa](https://www.raizagrohub.com.br/cadastro/empresa): formulário para empresas/AgTechs descreverem sua solução.
+- [Política de Privacidade](https://www.raizagrohub.com.br/politica-de-privacidade)
+- [Termos de Uso](https://www.raizagrohub.com.br/termos-de-uso)
+
+## Contato
+
+comercial@kerossolucoes.com.br

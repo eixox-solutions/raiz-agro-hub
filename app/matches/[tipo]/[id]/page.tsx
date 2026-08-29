@@ -1,9 +1,20 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { rankearEmpresasParaProdutor, rankearProdutoresParaEmpresa } from "@/lib/match";
 import { MatchCard } from "@/components/matches/match-card";
 
 const MAX_RESULTADOS = 5;
+
+export const metadata: Metadata = {
+  title: "Suas combinações | Raiz Agro Hub",
+  description:
+    "Veja as empresas ou produtores rurais mais compatíveis com o seu cadastro no Raiz Agro Hub.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 type Params = { tipo: string; id: string };
 type SearchParams = { nome?: string };
