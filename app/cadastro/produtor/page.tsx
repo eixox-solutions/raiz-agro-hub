@@ -1,5 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ProdutorForm } from "@/components/forms/produtor-form";
+
+export const metadata: Metadata = {
+  title: "Cadastro de Produtor Rural | Raiz Agro Hub",
+  description:
+    "Conte seu problema no campo e receba, de graça, uma lista de empresas e AgTechs que já resolvem esse desafio.",
+};
 
 export default function CadastroProdutorPage() {
   return (

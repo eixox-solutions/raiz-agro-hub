@@ -1,5 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { EmpresaForm } from "@/components/forms/empresa-form";
+
+export const metadata: Metadata = {
+  title: "Cadastro de Empresa e AgTech | Raiz Agro Hub",
+  description:
+    "Cadastre sua empresa ou AgTech e conecte-se, de graça, com produtores rurais que precisam da sua solução.",
+};
 
 export default function CadastroEmpresaPage() {
   return (
