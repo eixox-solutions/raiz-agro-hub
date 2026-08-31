@@ -45,7 +45,7 @@ export function ModeloNegocio() {
   return (
     <section id="modelo" className="max-w-6xl mx-auto px-4 py-20">
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent bg-accent-subtle px-3 py-1 rounded-full mb-3">
+        <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent-dark bg-accent-subtle px-3 py-1 rounded-full mb-3">
           MONETIZAÇÃO &amp; DIFERENCIAIS
         </span>
         <h2 className="font-heading text-3xl text-primary mb-3">Modelo de negócio sustentável</h2>
@@ -84,14 +84,14 @@ export function ModeloNegocio() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div className="bg-bg-card rounded-lg p-5">
-            <span className="block font-heading text-3xl font-bold text-accent mb-1">20</span>
+            <span className="block font-heading text-3xl font-bold text-accent-dark mb-1">20</span>
             <strong className="block text-sm text-primary mb-1">produtores rurais que já conversamos</strong>
             <p className="text-sm text-text-muted">
               Produtores mostraram interesse real em receber soluções para os problemas que eles mesmos apontaram.
             </p>
           </div>
           <div className="bg-bg-card rounded-lg p-5">
-            <span className="block font-heading text-3xl font-bold text-accent mb-1">11</span>
+            <span className="block font-heading text-3xl font-bold text-accent-dark mb-1">11</span>
             <strong className="block text-sm text-primary mb-1">empresas de tecnologia que já conversamos</strong>
             <p className="text-sm text-text-muted">
               Empresas contaram que é muito difícil hoje chegar até o produtor certo, na hora certa.

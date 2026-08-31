@@ -136,7 +136,7 @@ export function SimuladorCombinacao() {
   return (
     <section id="combinacao" className="max-w-6xl mx-auto px-4 py-20">
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent bg-accent-subtle px-3 py-1 rounded-full mb-3">
+        <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent-dark bg-accent-subtle px-3 py-1 rounded-full mb-3">
           VEJA UM EXEMPLO
         </span>
         <h2 className="font-heading text-3xl text-primary mb-3">
@@ -180,7 +180,7 @@ export function SimuladorCombinacao() {
                 onClick={() => setCenarioAtivo(chave)}
                 className={`text-sm px-4 py-2 rounded-full border transition-colors ${
                   cenarioAtivo === chave
-                    ? "bg-accent text-white border-accent"
+                    ? "bg-accent text-primary border-accent"
                     : "border-border-light text-text-muted hover:border-accent"
                 }`}
               >
@@ -235,7 +235,7 @@ export function SimuladorCombinacao() {
               </div>
               <Link
                 href="/cadastro/produtor"
-                className="bg-accent text-white text-sm font-heading font-semibold px-5 py-2.5 rounded-full"
+                className="bg-accent text-primary text-sm font-heading font-semibold px-5 py-2.5 rounded-full"
               >
                 Falar com essa Empresa
               </Link>

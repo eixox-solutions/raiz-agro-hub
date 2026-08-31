@@ -17,7 +17,7 @@ export function Hero() {
 
           <h1 className="font-heading text-4xl sm:text-5xl text-primary mb-5 leading-tight">
             O jeito fácil de achar{" "}
-            <span className="text-accent">quem resolve o seu problema</span> no campo
+            <span className="text-accent-dark">quem resolve o seu problema</span> no campo
           </h1>
 
           <p className="text-lg text-text-muted max-w-xl mb-8 leading-relaxed">
@@ -26,13 +26,13 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <a
-              href="#combinacao"
-              className="flex items-center justify-center gap-2 bg-accent text-white font-heading font-semibold px-6 py-3.5 rounded-full"
+            <Link
+              href="/#combinacao"
+              className="flex items-center justify-center gap-2 bg-accent text-primary font-heading font-semibold px-6 py-3.5 rounded-full"
             >
               <Sparkles size={18} />
               Ver Como Funciona
-            </a>
+            </Link>
             <Link
               href="/cadastro/produtor"
               className="flex items-center justify-center gap-2 border border-border-light text-primary font-heading font-semibold px-6 py-3.5 rounded-full"
@@ -66,6 +66,7 @@ export function Hero() {
               width={800}
               height={480}
               priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="w-full h-[320px] sm:h-[400px] lg:h-[480px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-primary/30" />
@@ -82,7 +83,7 @@ export function Hero() {
           </div>
 
           <div className="hidden sm:flex absolute top-5 right-5 items-center gap-3 bg-white/95 backdrop-blur rounded-lg shadow-lg px-4 py-3">
-            <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-lg bg-accent-subtle text-accent-dark flex items-center justify-center">
               <TrendingUp size={18} />
             </div>
             <div className="leading-tight">
@@ -92,7 +93,7 @@ export function Hero() {
           </div>
 
           <div className="hidden sm:flex absolute bottom-5 left-5 items-center gap-3 bg-white/95 backdrop-blur rounded-lg shadow-lg px-4 py-3">
-            <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-lg bg-earth-gold/10 text-earth-gold flex items-center justify-center">
               <Sparkles size={18} />
             </div>
             <div className="leading-tight">

@@ -30,7 +30,7 @@ export function ProblemaOportunidade() {
   return (
     <section id="proposito" className="max-w-6xl mx-auto px-4 py-20">
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent bg-accent-subtle px-3 py-1 rounded-full mb-3">
+        <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent-dark bg-accent-subtle px-3 py-1 rounded-full mb-3">
           DIAGNÓSTICO SETORIAL
         </span>
         <h2 className="font-heading text-3xl text-primary mb-3">O problema e a oportunidade</h2>

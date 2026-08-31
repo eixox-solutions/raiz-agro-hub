@@ -146,7 +146,7 @@ export function ProdutorForm() {
             </option>
           ))}
         </select>
-        <span className="text-sm text-text-light">
+        <span className="text-sm text-text-muted">
           Escolha o assunto que mais tem a ver com o que está te atrapalhando.
         </span>
       </div>
@@ -207,7 +207,7 @@ export function ProdutorForm() {
       <button
         type="submit"
         disabled={enviando}
-        className="w-full bg-accent text-white font-heading font-semibold py-3 rounded-full disabled:opacity-60"
+        className="w-full bg-accent text-primary font-heading font-semibold py-3 rounded-full disabled:opacity-60"
       >
         {enviando ? "Enviando..." : "Enviar meu Cadastro"}
       </button>

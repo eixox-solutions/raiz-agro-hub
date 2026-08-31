@@ -22,7 +22,7 @@ export function DataTable({
         <tbody>
           {linhas.length === 0 ? (
             <tr>
-              <td colSpan={colunas.length} className="py-4 text-text-light">
+              <td colSpan={colunas.length} className="py-4 text-text-muted">
                 {mensagemVazia}
               </td>
             </tr>

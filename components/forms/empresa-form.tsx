@@ -209,7 +209,7 @@ export function EmpresaForm() {
       <button
         type="submit"
         disabled={enviando}
-        className="w-full bg-accent text-white font-heading font-semibold py-3 rounded-full disabled:opacity-60"
+        className="w-full bg-accent text-primary font-heading font-semibold py-3 rounded-full disabled:opacity-60"
       >
         {enviando ? "Enviando..." : "Enviar meu Cadastro"}
       </button>

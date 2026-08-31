@@ -11,7 +11,7 @@ export function MercadoOportunidade() {
     <section id="mercado" className="bg-bg-card-alt py-20">
       <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-start">
         <div>
-          <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent bg-accent-subtle px-3 py-1 rounded-full mb-3">
+          <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent-dark bg-accent-subtle px-3 py-1 rounded-full mb-3">
             DIMENSIONAMENTO
           </span>
           <h2 className="font-heading text-3xl text-primary mb-4">Mercado e oportunidade</h2>

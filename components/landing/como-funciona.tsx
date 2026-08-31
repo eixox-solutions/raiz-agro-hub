@@ -13,11 +13,11 @@ export function ComoFunciona() {
     <section id="como-funciona" className="bg-bg-card-alt py-20">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent bg-accent-subtle px-3 py-1 rounded-full mb-3">
+          <span className="inline-block text-xs font-heading font-semibold tracking-wide text-accent-dark bg-accent-subtle px-3 py-1 rounded-full mb-3">
             É SIMPLES ASSIM
           </span>
           <h2 className="font-heading text-3xl text-primary mb-3">Como o Raiz funciona</h2>
-          <p className="text-accent font-semibold">Do seu problema até a solução certa, passo a passo</p>
+          <p className="text-accent-dark font-semibold">Do seu problema até a solução certa, passo a passo</p>
         </div>
 
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-6">
@@ -32,7 +32,7 @@ export function ComoFunciona() {
               >
                 <span
                   className={`font-heading text-xs font-bold px-2 py-1 rounded-full ${
-                    destaque ? "bg-accent text-white" : "bg-accent-subtle text-accent"
+                    destaque ? "bg-accent text-primary" : "bg-accent-subtle text-accent-dark"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
