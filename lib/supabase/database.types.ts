@@ -36,6 +36,7 @@ export type Database = {
     Tables: {
       empresas: {
         Row: {
+          ativo: boolean
           categoria_solucao: string
           criado_em: string
           desc_solucao: string | null
@@ -50,6 +51,7 @@ export type Database = {
           uf: string
         }
         Insert: {
+          ativo?: boolean
           categoria_solucao: string
           criado_em?: string
           desc_solucao?: string | null
@@ -64,6 +66,7 @@ export type Database = {
           uf: string
         }
         Update: {
+          ativo?: boolean
           categoria_solucao?: string
           criado_em?: string
           desc_solucao?: string | null
@@ -138,6 +141,7 @@ export type Database = {
       produtores: {
         Row: {
           atividade: string
+          ativo: boolean
           categoria_desafio: string
           criado_em: string
           desc_desafio: string | null
@@ -152,6 +156,7 @@ export type Database = {
         }
         Insert: {
           atividade: string
+          ativo?: boolean
           categoria_desafio: string
           criado_em?: string
           desc_desafio?: string | null
@@ -166,6 +171,7 @@ export type Database = {
         }
         Update: {
           atividade?: string
+          ativo?: boolean
           categoria_desafio?: string
           criado_em?: string
           desc_desafio?: string | null
@@ -253,7 +259,36 @@ export type Database = {
       }
     }
     Functions: {
-      [_ in never]: never
+      cadastrar_empresa_idempotente: {
+        Args: {
+          p_categoria_solucao: string
+          p_desc_solucao: string
+          p_email: string
+          p_estagio: string
+          p_nome_empresa: string
+          p_porte_alvo: string
+          p_regioes_atendidas: string
+          p_responsavel: string
+          p_telefone: string
+          p_uf: string
+        }
+        Returns: string
+      }
+      cadastrar_produtor_idempotente: {
+        Args: {
+          p_atividade: string
+          p_categoria_desafio: string
+          p_desc_desafio: string
+          p_email: string
+          p_municipio: string
+          p_nome: string
+          p_porte: string
+          p_telefone: string
+          p_uf: string
+          p_urgencia: string
+        }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never

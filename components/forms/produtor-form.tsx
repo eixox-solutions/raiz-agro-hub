@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { cadastrarProdutor } from "@/app/cadastro/actions";
 import { formatarTelefone } from "@/lib/format-phone";
@@ -11,14 +11,22 @@ export function ProdutorForm() {
   const [telefone, setTelefone] = useState("");
   const [erro, setErro] = useState<string | null>(null);
   const [enviando, setEnviando] = useState(false);
+  const enviandoRef = useRef(false);
 
   async function handleSubmit(formData: FormData) {
+    // Trava síncrona: useState só reflete no DOM no próximo render, então
+    // dois cliques rápidos (ou reenvio do form) podem passar pelo `disabled`
+    // antes de o estado atualizar. useRef é lido/escrito imediatamente.
+    if (enviandoRef.current) return;
+    enviandoRef.current = true;
+
     setErro(null);
     setEnviando(true);
     formData.set("telefone", telefone);
     const resultado = await cadastrarProdutor(formData);
     setEnviando(false);
     if ("error" in resultado) {
+      enviandoRef.current = false;
       setErro(resultado.error);
       return;
     }
@@ -146,7 +154,7 @@ export function ProdutorForm() {
             </option>
           ))}
         </select>
-        <span className="text-sm text-text-light">
+        <span className="text-sm text-text-muted">
           Escolha o assunto que mais tem a ver com o que está te atrapalhando.
         </span>
       </div>
@@ -207,7 +215,7 @@ export function ProdutorForm() {
       <button
         type="submit"
         disabled={enviando}
-        className="w-full bg-accent text-white font-heading font-semibold py-3 rounded-full disabled:opacity-60"
+        className="w-full bg-accent text-primary font-heading font-semibold py-3 rounded-full disabled:opacity-60"
       >
         {enviando ? "Enviando..." : "Enviar meu Cadastro"}
       </button>

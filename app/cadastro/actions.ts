@@ -43,28 +43,32 @@ export async function cadastrarProdutor(
   }
 
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("produtores")
-    .insert({
-      nome,
-      email,
-      telefone,
-      municipio,
-      uf,
-      atividade,
-      categoria_desafio: categoriaDesafio,
-      desc_desafio: typeof descDesafio === "string" ? descDesafio.trim() : "",
-      urgencia,
-      porte,
-    })
-    .select("id")
-    .single();
+
+  // Insere via RPC (função private.cadastrar_produtor_idempotente) em vez
+  // de .insert() direto: se o mesmo formulário for reenviado por engano
+  // (double-submit, F5, voltar e enviar de novo), a função devolve o id
+  // do cadastro que já existe em vez de duplicar. Precisa ser via RPC
+  // (SECURITY DEFINER) porque a visitante anônimo não tem permissão de
+  // ler e-mail/telefone diretamente — só a função, rodando com privilégio
+  // elevado internamente, pode checar a duplicata.
+  const { data, error } = await supabase.rpc("cadastrar_produtor_idempotente", {
+    p_nome: nome,
+    p_email: email,
+    p_telefone: telefone,
+    p_municipio: municipio,
+    p_uf: uf,
+    p_atividade: atividade,
+    p_categoria_desafio: categoriaDesafio,
+    p_desc_desafio: typeof descDesafio === "string" ? descDesafio.trim() : "",
+    p_urgencia: urgencia,
+    p_porte: porte,
+  });
 
   if (error || !data) {
     return { error: "Não foi possível salvar seu cadastro. Tente novamente." };
   }
 
-  return { id: data.id };
+  return { id: data };
 }
 
 export async function cadastrarEmpresa(
@@ -101,26 +105,25 @@ export async function cadastrarEmpresa(
   }
 
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("empresas")
-    .insert({
-      nome_empresa: nomeEmpresa,
-      responsavel,
-      email,
-      telefone,
-      uf,
-      regioes_atendidas: regioesAtendidas,
-      categoria_solucao: categoriaSolucao,
-      desc_solucao: typeof descSolucao === "string" ? descSolucao.trim() : "",
-      estagio,
-      porte_alvo: porteAlvo,
-    })
-    .select("id")
-    .single();
+
+  // Mesmo padrão do cadastro de produtor: RPC idempotente para não criar
+  // duplicata em reenvio acidental do formulário.
+  const { data, error } = await supabase.rpc("cadastrar_empresa_idempotente", {
+    p_nome_empresa: nomeEmpresa,
+    p_responsavel: responsavel,
+    p_email: email,
+    p_telefone: telefone,
+    p_uf: uf,
+    p_regioes_atendidas: regioesAtendidas,
+    p_categoria_solucao: categoriaSolucao,
+    p_desc_solucao: typeof descSolucao === "string" ? descSolucao.trim() : "",
+    p_estagio: estagio,
+    p_porte_alvo: porteAlvo,
+  });
 
   if (error || !data) {
     return { error: "Não foi possível salvar seu cadastro. Tente novamente." };
   }
 
-  return { id: data.id };
+  return { id: data };
 }

@@ -11,6 +11,7 @@ const config: Config = {
         primary: "#0D3A22",
         "primary-dark": "#072213",
         accent: "#68B632",
+        "accent-dark": "#3F7A1A",
         "accent-light": "#7FD046",
         "accent-subtle": "#EBF7E7",
         "earth-gold": "#D69E2E",

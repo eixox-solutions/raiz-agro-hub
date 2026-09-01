@@ -79,7 +79,7 @@ export function MatchCard({
           type="button"
           onClick={handleClick}
           disabled={solicitado}
-          className="mt-4 bg-accent text-white font-heading font-semibold px-6 py-3 rounded-full disabled:opacity-60"
+          className="mt-4 bg-accent text-primary font-heading font-semibold px-6 py-3 rounded-full disabled:opacity-60"
         >
           {solicitado ? "✓ Conexão Solicitada" : botaoTexto}
         </button>

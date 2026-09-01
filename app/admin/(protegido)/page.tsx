@@ -1,35 +1,138 @@
 import { createClient } from "@/lib/supabase/server";
-import { DataTable } from "@/components/admin/data-table";
-import { CsvExportButton } from "@/components/admin/csv-export-button";
-import { logout } from "./actions";
+import { SecaoTabela } from "@/components/admin/secao-tabela";
+import type { LinhaTabela } from "@/components/admin/data-table";
+import type { CampoDetalhe } from "@/components/admin/detalhes-modal";
+import { logout, exportarProdutoresCsv, exportarEmpresasCsv, exportarConexoesCsv } from "./actions";
 
-export default async function AdminPage() {
+const ITENS_POR_PAGINA = 20;
+const FUSO_HORARIO = "America/Campo_Grande";
+
+function formatarData(iso: string) {
+  return new Date(iso).toLocaleString("pt-BR", {
+    timeZone: FUSO_HORARIO,
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+function paginaValida(valor: string | undefined) {
+  const numero = Number(valor);
+  return Number.isFinite(numero) && numero >= 1 ? Math.floor(numero) : 1;
+}
+
+export default async function AdminPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    produtoresPagina?: string;
+    empresasPagina?: string;
+    conexoesPagina?: string;
+  }>;
+}) {
+  const { produtoresPagina, empresasPagina, conexoesPagina } = await searchParams;
+  const paginaProdutores = paginaValida(produtoresPagina);
+  const paginaEmpresas = paginaValida(empresasPagina);
+  const paginaConexoes = paginaValida(conexoesPagina);
+
   const supabase = await createClient();
 
-  const { data: produtores } = await supabase
+  const { data: produtores, count: totalProdutores } = await supabase
     .from("produtores")
-    .select("nome, municipio, uf, categoria_desafio, urgencia, criado_em")
-    .order("criado_em", { ascending: false });
+    .select("*", { count: "exact" })
+    .order("criado_em", { ascending: false })
+    .order("id", { ascending: false })
+    .range((paginaProdutores - 1) * ITENS_POR_PAGINA, paginaProdutores * ITENS_POR_PAGINA - 1);
 
-  const { data: empresas } = await supabase
+  const { data: empresas, count: totalEmpresas } = await supabase
     .from("empresas")
-    .select("nome_empresa, uf, categoria_solucao, estagio, criado_em")
-    .order("criado_em", { ascending: false });
+    .select("*", { count: "exact" })
+    .order("criado_em", { ascending: false })
+    .order("id", { ascending: false })
+    .range((paginaEmpresas - 1) * ITENS_POR_PAGINA, paginaEmpresas * ITENS_POR_PAGINA - 1);
 
-  const { data: matches } = await supabase
+  const { data: matches, count: totalConexoes } = await supabase
     .from("matches")
-    .select(
-      "score, criado_em, produtores(nome), empresas(nome_empresa)"
-    )
+    .select("id, score, criado_em, produtores(nome), empresas(nome_empresa)", { count: "exact" })
     .eq("status", "conexao_solicitada")
-    .order("criado_em", { ascending: false });
+    .order("criado_em", { ascending: false })
+    .order("id", { ascending: false })
+    .range((paginaConexoes - 1) * ITENS_POR_PAGINA, paginaConexoes * ITENS_POR_PAGINA - 1);
 
-  const totalProdutores = produtores?.length ?? 0;
-  const totalEmpresas = empresas?.length ?? 0;
-  const totalConexoes = matches?.length ?? 0;
+  const linhasProdutores: LinhaTabela[] = (produtores ?? []).map((p) => ({
+    id: p.id,
+    ativo: p.ativo,
+    celulas: [p.nome, `${p.municipio}/${p.uf}`, p.categoria_desafio, p.urgencia, formatarData(p.criado_em)],
+  }));
+  const detalhesProdutores: Record<string, CampoDetalhe[]> = Object.fromEntries(
+    (produtores ?? []).map((p) => [
+      p.id,
+      [
+        { rotulo: "Nome", valor: p.nome },
+        { rotulo: "E-mail", valor: p.email },
+        { rotulo: "Telefone", valor: p.telefone },
+        { rotulo: "Município/UF", valor: `${p.municipio}/${p.uf}` },
+        { rotulo: "Atividade", valor: p.atividade },
+        { rotulo: "Categoria do desafio", valor: p.categoria_desafio },
+        { rotulo: "Descrição do desafio", valor: p.desc_desafio ?? "" },
+        { rotulo: "Urgência", valor: p.urgencia },
+        { rotulo: "Porte da propriedade", valor: p.porte },
+        { rotulo: "Data de cadastro", valor: formatarData(p.criado_em) },
+      ] satisfies CampoDetalhe[],
+    ])
+  );
 
-  const formatarData = (iso: string) =>
-    new Date(iso).toLocaleDateString("pt-BR");
+  const linhasEmpresas: LinhaTabela[] = (empresas ?? []).map((e) => ({
+    id: e.id,
+    ativo: e.ativo,
+    celulas: [e.nome_empresa, e.uf, e.categoria_solucao, e.estagio, formatarData(e.criado_em)],
+  }));
+  const detalhesEmpresas: Record<string, CampoDetalhe[]> = Object.fromEntries(
+    (empresas ?? []).map((e) => [
+      e.id,
+      [
+        { rotulo: "Nome da empresa", valor: e.nome_empresa },
+        { rotulo: "Responsável", valor: e.responsavel },
+        { rotulo: "E-mail", valor: e.email },
+        { rotulo: "Telefone", valor: e.telefone },
+        { rotulo: "UF", valor: e.uf },
+        { rotulo: "Regiões atendidas", valor: e.regioes_atendidas },
+        { rotulo: "Categoria da solução", valor: e.categoria_solucao },
+        { rotulo: "Descrição da solução", valor: e.desc_solucao ?? "" },
+        { rotulo: "Estágio", valor: e.estagio },
+        { rotulo: "Porte alvo", valor: e.porte_alvo },
+        { rotulo: "Data de cadastro", valor: formatarData(e.criado_em) },
+      ] satisfies CampoDetalhe[],
+    ])
+  );
+
+  const linhasConexoes: LinhaTabela[] = (matches ?? []).map((m) => {
+    const nomeProdutor = (m.produtores as unknown as { nome: string } | null)?.nome ?? "Produtor removido";
+    const nomeEmpresa =
+      (m.empresas as unknown as { nome_empresa: string } | null)?.nome_empresa ?? "Empresa removida";
+    return {
+      id: m.id,
+      celulas: [nomeProdutor, nomeEmpresa, `${m.score}%`, formatarData(m.criado_em)],
+    };
+  });
+  const detalhesConexoes: Record<string, CampoDetalhe[]> = Object.fromEntries(
+    (matches ?? []).map((m) => {
+      const nomeProdutor = (m.produtores as unknown as { nome: string } | null)?.nome ?? "Produtor removido";
+      const nomeEmpresa =
+        (m.empresas as unknown as { nome_empresa: string } | null)?.nome_empresa ?? "Empresa removida";
+      return [
+        m.id,
+        [
+          { rotulo: "Produtor", valor: nomeProdutor },
+          { rotulo: "Empresa", valor: nomeEmpresa },
+          { rotulo: "Combina", valor: `${m.score}%` },
+          { rotulo: "Data", valor: formatarData(m.criado_em) },
+        ] satisfies CampoDetalhe[],
+      ];
+    })
+  );
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-12">
@@ -44,111 +147,67 @@ export default async function AdminPage() {
         </form>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
         <div className="bg-bg-card-alt rounded-lg p-4 text-center">
           <span className="block text-3xl font-heading font-bold text-primary">
-            {totalProdutores}
+            {totalProdutores ?? 0}
           </span>
           <span className="text-sm text-text-muted">Produtores cadastrados</span>
         </div>
         <div className="bg-bg-card-alt rounded-lg p-4 text-center">
           <span className="block text-3xl font-heading font-bold text-primary">
-            {totalEmpresas}
+            {totalEmpresas ?? 0}
           </span>
           <span className="text-sm text-text-muted">Empresas cadastradas</span>
         </div>
         <div className="bg-bg-card-alt rounded-lg p-4 text-center">
           <span className="block text-3xl font-heading font-bold text-primary">
-            {totalConexoes}
+            {totalConexoes ?? 0}
           </span>
           <span className="text-sm text-text-muted">Conexões solicitadas</span>
         </div>
       </div>
 
-      <section className="mb-10">
-        <div className="flex justify-between items-center mb-3">
-          <h2 className="font-heading text-lg text-primary">Produtores</h2>
-          <CsvExportButton
-            nomeArquivo="produtores.csv"
-            cabecalho={["Nome", "Município", "UF", "Categoria do Desafio", "Urgência", "Data"]}
-            linhas={(produtores ?? []).map((p) => [
-              p.nome,
-              p.municipio,
-              p.uf,
-              p.categoria_desafio,
-              p.urgencia,
-              formatarData(p.criado_em),
-            ])}
-          />
-        </div>
-        <DataTable
-          colunas={["Nome", "Município/UF", "Categoria do Desafio", "Urgência", "Data de Cadastro"]}
-          linhas={(produtores ?? []).map((p) => [
-            p.nome,
-            `${p.municipio}/${p.uf}`,
-            p.categoria_desafio,
-            p.urgencia,
-            formatarData(p.criado_em),
-          ])}
-          mensagemVazia="Nenhum produtor cadastrado ainda."
-        />
-      </section>
+      <SecaoTabela
+        titulo="Produtores"
+        colunas={["Nome", "Município/UF", "Categoria do Desafio", "Urgência", "Data de Cadastro"]}
+        linhas={linhasProdutores}
+        detalhesPorId={detalhesProdutores}
+        mensagemVazia="Nenhum produtor cadastrado ainda."
+        tabelaAlternavel="produtores"
+        paginaAtual={paginaProdutores}
+        totalPaginas={Math.max(1, Math.ceil((totalProdutores ?? 0) / ITENS_POR_PAGINA))}
+        parametroPagina="produtoresPagina"
+        nomeArquivoCsv="produtores.csv"
+        buscarTodosParaExport={exportarProdutoresCsv}
+      />
 
-      <section className="mb-10">
-        <div className="flex justify-between items-center mb-3">
-          <h2 className="font-heading text-lg text-primary">Empresas</h2>
-          <CsvExportButton
-            nomeArquivo="empresas.csv"
-            cabecalho={["Nome da Empresa", "UF", "Categoria da Solução", "Estágio", "Data"]}
-            linhas={(empresas ?? []).map((e) => [
-              e.nome_empresa,
-              e.uf,
-              e.categoria_solucao,
-              e.estagio,
-              formatarData(e.criado_em),
-            ])}
-          />
-        </div>
-        <DataTable
-          colunas={["Nome da Empresa", "UF", "Categoria da Solução", "Estágio", "Data de Cadastro"]}
-          linhas={(empresas ?? []).map((e) => [
-            e.nome_empresa,
-            e.uf,
-            e.categoria_solucao,
-            e.estagio,
-            formatarData(e.criado_em),
-          ])}
-          mensagemVazia="Nenhuma empresa cadastrada ainda."
-        />
-      </section>
+      <SecaoTabela
+        titulo="Empresas"
+        colunas={["Nome da Empresa", "UF", "Categoria da Solução", "Estágio", "Data de Cadastro"]}
+        linhas={linhasEmpresas}
+        detalhesPorId={detalhesEmpresas}
+        mensagemVazia="Nenhuma empresa cadastrada ainda."
+        tabelaAlternavel="empresas"
+        paginaAtual={paginaEmpresas}
+        totalPaginas={Math.max(1, Math.ceil((totalEmpresas ?? 0) / ITENS_POR_PAGINA))}
+        parametroPagina="empresasPagina"
+        nomeArquivoCsv="empresas.csv"
+        buscarTodosParaExport={exportarEmpresasCsv}
+      />
 
-      <section>
-        <div className="flex justify-between items-center mb-3">
-          <h2 className="font-heading text-lg text-primary">
-            Conexões Solicitadas
-          </h2>
-          <CsvExportButton
-            nomeArquivo="conexoes.csv"
-            cabecalho={["Produtor", "Empresa", "Combina", "Data"]}
-            linhas={(matches ?? []).map((m) => [
-              (m.produtores as unknown as { nome: string } | null)?.nome ?? "Produtor removido",
-              (m.empresas as unknown as { nome_empresa: string } | null)?.nome_empresa ?? "Empresa removida",
-              `${m.score}%`,
-              formatarData(m.criado_em),
-            ])}
-          />
-        </div>
-        <DataTable
-          colunas={["Produtor", "Empresa", "Combina", "Data"]}
-          linhas={(matches ?? []).map((m) => [
-            (m.produtores as unknown as { nome: string } | null)?.nome ?? "Produtor removido",
-            (m.empresas as unknown as { nome_empresa: string } | null)?.nome_empresa ?? "Empresa removida",
-            `${m.score}%`,
-            formatarData(m.criado_em),
-          ])}
-          mensagemVazia="Nenhuma conexão solicitada ainda."
-        />
-      </section>
+      <SecaoTabela
+        titulo="Conexões Solicitadas"
+        colunas={["Produtor", "Empresa", "Combina", "Data"]}
+        linhas={linhasConexoes}
+        detalhesPorId={detalhesConexoes}
+        mensagemVazia="Nenhuma conexão solicitada ainda."
+        paginaAtual={paginaConexoes}
+        totalPaginas={Math.max(1, Math.ceil((totalConexoes ?? 0) / ITENS_POR_PAGINA))}
+        parametroPagina="conexoesPagina"
+        nomeArquivoCsv="conexoes.csv"
+        buscarTodosParaExport={exportarConexoesCsv}
+      />
     </main>
   );
 }

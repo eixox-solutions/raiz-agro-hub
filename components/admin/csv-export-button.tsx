@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 function escaparCampoCsv(valor: string): string {
   if (valor.includes(",") || valor.includes('"') || valor.includes("\n")) {
     return '"' + valor.replace(/"/g, '""') + '"';
@@ -17,13 +19,22 @@ function gerarCsv(cabecalho: string[], linhas: string[][]): string {
 export function CsvExportButton({
   nomeArquivo,
   cabecalho,
-  linhas,
+  buscarDados,
 }: {
   nomeArquivo: string;
   cabecalho: string[];
-  linhas: string[][];
+  buscarDados: () => Promise<string[][]>;
 }) {
-  function handleClick() {
+  const [carregando, setCarregando] = useState(false);
+
+  async function handleClick() {
+    setCarregando(true);
+    // Busca TODOS os registros (não só os da página atual visível na
+    // tabela) para que o export não fique parcial só porque a listagem
+    // está paginada.
+    const linhas = await buscarDados();
+    setCarregando(false);
+
     const csv = "﻿" + gerarCsv(cabecalho, linhas);
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
@@ -38,9 +49,10 @@ export function CsvExportButton({
     <button
       type="button"
       onClick={handleClick}
-      className="text-sm border border-border-light rounded-md px-4 py-2"
+      disabled={carregando}
+      className="text-sm border border-border-light rounded-md px-4 py-2 disabled:opacity-60"
     >
-      Exportar CSV
+      {carregando ? "Exportando..." : "Exportar CSV"}
     </button>
   );
 }

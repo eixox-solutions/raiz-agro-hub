@@ -56,14 +56,16 @@ export function CookieBanner() {
             </p>
             <div className="flex gap-3 shrink-0">
               <button
+                type="button"
                 onClick={() => decide("rejected")}
                 className="text-sm font-medium px-4 py-2 rounded-full border border-white/40 hover:bg-white/10"
               >
                 Recusar
               </button>
               <button
+                type="button"
                 onClick={() => decide("accepted")}
-                className="text-sm font-heading font-semibold px-4 py-2 rounded-full bg-accent text-white hover:bg-accent-light"
+                className="text-sm font-heading font-semibold px-4 py-2 rounded-full bg-accent text-primary hover:bg-accent-light"
               >
                 Aceitar
               </button>
