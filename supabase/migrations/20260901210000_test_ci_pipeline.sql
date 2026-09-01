@@ -1,0 +1,3 @@
+-- Teste do pipeline de CI de migrations (.github/workflows/deploy-migrations.yml):
+-- confirma que um push em main com mudança em supabase/migrations/** dispara
+-- o `supabase db push` automático contra produção. Sem efeito no schema.
