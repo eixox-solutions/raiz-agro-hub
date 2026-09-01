@@ -13,9 +13,21 @@ import {
   Satellite,
   Layers,
   Radar,
+  Droplets,
+  Sprout,
+  CloudRain,
+  Thermometer,
+  type LucideIcon,
 } from "lucide-react";
 
 type CenarioChave = "ervas" | "adubo" | "clima";
+
+type OutraEmpresa = {
+  icon: LucideIcon;
+  nome: string;
+  badge: string;
+  texto: string;
+};
 
 type Cenario = {
   labelBotao: string;
@@ -36,6 +48,7 @@ type Cenario = {
     solucao: string;
     tags: string[];
   };
+  outrasEmpresas: OutraEmpresa[];
 };
 
 const CENARIOS: Record<CenarioChave, Cenario> = {
@@ -58,6 +71,26 @@ const CENARIOS: Record<CenarioChave, Cenario> = {
       solucao: "Mostra onde está o mato na lavoura e diz o jeito certo de tirar",
       tags: ["precisão", "economia", "dados", "monitoramento"],
     },
+    outrasEmpresas: [
+      {
+        icon: Satellite,
+        nome: "AgriSmart",
+        badge: "86% combina",
+        texto: "Olha sua lavoura de longe e avisa onde precisa de atenção",
+      },
+      {
+        icon: Radar,
+        nome: "CropTech",
+        badge: "81% combina",
+        texto: "Aplica defensivo só onde precisa, direto pelo drone",
+      },
+      {
+        icon: Sprout,
+        nome: "MatoZero",
+        badge: "78% combina",
+        texto: "Reconhece o tipo de mato e recomenda o manejo certo",
+      },
+    ],
   },
   adubo: {
     labelBotao: "Milho - Gastando Muito com Adubo",
@@ -78,6 +111,26 @@ const CENARIOS: Record<CenarioChave, Cenario> = {
       solucao: "Coloca adubo só onde precisa, economizando até 22% no gasto",
       tags: ["economia 22%", "menos desperdício", "sensores no solo"],
     },
+    outrasEmpresas: [
+      {
+        icon: Layers,
+        nome: "TerraView",
+        badge: "83% combina",
+        texto: "Testa a terra e diz qual adubo usar, sem desperdício",
+      },
+      {
+        icon: Droplets,
+        nome: "NutriSolo",
+        badge: "79% combina",
+        texto: "Mede os nutrientes da terra e monta um plano de adubação",
+      },
+      {
+        icon: Radar,
+        nome: "CropTech",
+        badge: "75% combina",
+        texto: "Aplica adubo só onde precisa, direto pelo drone",
+      },
+    ],
   },
   clima: {
     labelBotao: "Pecuária / Grãos - Saber Quando Vai Chover",
@@ -98,29 +151,28 @@ const CENARIOS: Record<CenarioChave, Cenario> = {
       solucao: "Manda alerta no celular 15 dias antes de mudança forte no tempo",
       tags: ["previsão 15 dias", "alerta de geada", "direto no celular"],
     },
+    outrasEmpresas: [
+      {
+        icon: CloudRain,
+        nome: "ChuvaCerta",
+        badge: "85% combina",
+        texto: "Mostra a previsão da chuva específica pra sua propriedade",
+      },
+      {
+        icon: Thermometer,
+        nome: "PastoSat",
+        badge: "80% combina",
+        texto: "Acompanha a condição do pasto e avisa a hora de trocar o gado",
+      },
+      {
+        icon: Satellite,
+        nome: "AgriSmart",
+        badge: "77% combina",
+        texto: "Olha sua propriedade de longe e avisa onde precisa de atenção",
+      },
+    ],
   },
 };
-
-const OUTRAS_EMPRESAS = [
-  {
-    icon: Satellite,
-    nome: "AgriSmart",
-    badge: "86% combina",
-    texto: "Olha sua lavoura de longe e avisa onde precisa de atenção",
-  },
-  {
-    icon: Layers,
-    nome: "TerraView",
-    badge: "83% combina",
-    texto: "Testa a terra e diz qual adubo usar, sem desperdício",
-  },
-  {
-    icon: Radar,
-    nome: "CropTech",
-    badge: "81% combina",
-    texto: "Aplica defensivo só onde precisa, direto pelo drone",
-  },
-];
 
 const TAGS_RECURSO = [
   { icon: Cpu, texto: "Sistema próprio do Raiz" },
@@ -276,7 +328,7 @@ export function SimuladorCombinacao() {
               Outras empresas que também podem te ajudar:
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
-              {OUTRAS_EMPRESAS.map(({ icon: Icon, nome, badge, texto }) => (
+              {dados.outrasEmpresas.map(({ icon: Icon, nome, badge, texto }) => (
                 <div key={nome} className="bg-bg-card-alt rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <Icon size={20} className="text-accent" />
