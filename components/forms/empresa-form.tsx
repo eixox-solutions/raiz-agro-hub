@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { cadastrarEmpresa } from "@/app/cadastro/actions";
 import { formatarTelefone } from "@/lib/format-phone";
@@ -19,14 +19,19 @@ export function EmpresaForm() {
   const [telefone, setTelefone] = useState("");
   const [erro, setErro] = useState<string | null>(null);
   const [enviando, setEnviando] = useState(false);
+  const enviandoRef = useRef(false);
 
   async function handleSubmit(formData: FormData) {
+    if (enviandoRef.current) return;
+    enviandoRef.current = true;
+
     setErro(null);
     setEnviando(true);
     formData.set("telefone", telefone);
     const resultado = await cadastrarEmpresa(formData);
     setEnviando(false);
     if ("error" in resultado) {
+      enviandoRef.current = false;
       setErro(resultado.error);
       return;
     }

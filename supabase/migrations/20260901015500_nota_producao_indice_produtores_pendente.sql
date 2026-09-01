@@ -1,0 +1,29 @@
+-- NOTA (sem efeito no schema): a migration anterior
+-- (20260901014016_admin_ativo_inativo.sql) cria o índice único
+-- "produtores_sem_duplicata_recente" em ambiente local, mas esse índice
+-- específico NÃO foi aplicado em produção ainda.
+--
+-- Motivo: produção já tinha um par de produtores duplicados de verdade
+-- (fernando.riedo@hotmail.com, dois cadastros a 2 segundos de distância,
+-- causados pelo bug de double-submit que esta mesma migration corrige
+-- para novos cadastros) no momento da aplicação. Criar o índice único
+-- falha com conflito de unicidade sobre esse par existente. O usuário
+-- optou por manter os dois registros por enquanto (um deles tem uma
+-- conexão solicitada real associada) em vez de apagar um automaticamente.
+--
+-- O índice de empresas ("empresas_sem_duplicata_recente") não teve esse
+-- problema e foi aplicado normalmente em produção.
+--
+-- Quando o duplicado for resolvido (mantendo o registro com a conexão
+-- associada, id 4995d023-3c37-47f3-b1d4-6785b5db546e, e removendo o outro,
+-- id 9b3de0fd-95b0-48f5-8b56-1ceee8f875e0), aplicar em produção:
+--
+--   CREATE UNIQUE INDEX "produtores_sem_duplicata_recente"
+--     ON "public"."produtores" ("email", "telefone",
+--       (date_trunc('minute', "criado_em" AT TIME ZONE 'UTC')));
+--
+-- Até lá, a proteção contra NOVOS double-submits de produtor continua
+-- funcionando via o guard client-side (useRef em produtor-form.tsx) e via
+-- a checagem de janela de tempo dentro de cadastrar_produtor_idempotente
+-- (que não depende do índice único, só o usa como mecanismo adicional de
+-- segurança em caso de corrida entre duas requisições simultâneas).
